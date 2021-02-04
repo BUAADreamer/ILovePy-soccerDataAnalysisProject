@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+.backtotop{
+	position: fixed;
+	right: 3%;
+	bottom: 10%; 
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 50px;
+	display: none;
+}
+#cover{
+	position:fixed;
+	right: 50px;
+	bottom: 50px;
+	opacity: 0;
+	width:48px;
+	height:78px;
+}
+#solid{
+	position:fixed;
+	right: 50px;
+	bottom: 50px;
+	z-index: 1000;
+	width:48px;
+	height:78px;
+}
+
+.music_play{
+	clear: both;
+	float: left;
+	height: 20px;
+}
+.music_play img{
+	width: 25px;height: 25px;
+}
+
+.hi {
+  position: fixed;
+  bottom: 2vw;
+  left: 2vw;
+  color: #000;
+  font-size: 1vw;
+  z-index: 999;
+  text-decoration: none;
+}
