@@ -6,6 +6,7 @@ from jinja2 import Markup, Environment, FileSystemLoader
 from pyecharts.globals import CurrentConfig
 from flask_sqlalchemy import SQLAlchemy
 # import db
+import sweetviz as sv
 import flask
 import pandas as pd
 import pymysql
@@ -27,7 +28,7 @@ app.config['SECRET_KEY'] = os.urandom(24)
 
 
 def register(name, password):
-    db = pymysql.connect(host='localhost', user='your_name', password='your_password','Soccer')
+    db = pymysql.connect(host='localhost', user='root', password='1325muller', db='Soccer')
     cursor = db.cursor()
     # print("connect to db")
     sql = "SELECT * FROM client \
@@ -102,6 +103,7 @@ def upload():
         path = os.path.join('./files', f.filename)
         f.save(path)
         t = f.filename.split(".")[1]
+        name=f.filename.split(".")[0]
         if (t == "csv"):
             df = pd.read_csv(path).describe()
             data = {}
@@ -110,8 +112,22 @@ def upload():
                 for j in df.index:
                     dic[j] = df.loc[j, i]
                 data[i] = dic
-        print(data)
+        elif t=="xlsx" or t=="xls":
+            df = pd.read_excel(path).describe()
+            data = {}
+            for i in df.columns:
+                dic = {}
+                for j in df.index:
+                    dic[j] = df.loc[j, i]
+                data[i] = dic
+        # print(data)
+        # x = pandas_profiling.ProfileReport(df)
+        # x.to_file("%s.html") % name
+        # my_report = sv.analyze(df)
+        # my_report.show_html()
         return render_template('analyze.html', data=data, user=getUser(), file=f.filename)
+
+
 
 
 @app.route("/1")
@@ -131,23 +147,23 @@ def crawler():
     else:
         country = flask.request.form["country"]
         t = flask.request.form["t"]
-        print(country,t)
-        urld = {"England": "https://www.dongqiudi.com/data/1", "Spain": "https://www.dongqiudi.com/data/3",
-                "Italy": "https://www.dongqiudi.com/data/2", "German": "https://www.dongqiudi.com/data/4",
-                "France": "https://www.dongqiudi.com/data/10", "China": "https://www.dongqiudi.com/data/231"}
-        html_code = get_response(urld[country])
-        content = etree.HTML(html_code)
-        team = content.xpath("//span[@class='team-icon']/b/text()")  # 队名
-        events = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[3]/text()")  # 场数
-        win = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[4]/text()")  # 胜场
-        lose = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[5]/text()")  # 败场
-        draw = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[6]/text()")  # 平局
-        goals = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[7]/text()")  # 进球
-        fumble = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[8]/text()")  # 失球
-        points = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[10]/text()")
-        data = [list(x) for x in zip(goals, fumble, team)]
+        # print(country,t)
+        # urld = {"England": "https://www.dongqiudi.com/data/1", "Spain": "https://www.dongqiudi.com/data/3",
+        #         "Italy": "https://www.dongqiudi.com/data/2", "German": "https://www.dongqiudi.com/data/4",
+        #         "France": "https://www.dongqiudi.com/data/10", "China": "https://www.dongqiudi.com/data/231"}
+        # html_code = get_response(urld[country])
+        # content = etree.HTML(html_code)
+        # team = content.xpath("//span[@class='team-icon']/b/text()")  # 队名
+        # events = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[3]/text()")  # 场数
+        # win = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[4]/text()")  # 胜场
+        # lose = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[5]/text()")  # 败场
+        # draw = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[6]/text()")  # 平局
+        # goals = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[7]/text()")  # 进球
+        # fumble = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[8]/text()")  # 失球
+        # points = content.xpath("//div[@class='team_point_ranking']/div/div/div[2]/p[@class='td']/span[10]/text()")
+        # data = [list(x) for x in zip(goals, fumble, team)]
         s = pic(country, t).strip().strip("<body>").strip("</body>")
-        print(s)
+        # print(s)
         s='''<!DOCTYPE html>
 <html lang="en">
 
@@ -259,14 +275,11 @@ def crawler():
     <div class="section section-basic">
         <div class="container">
             <div class="title">
-                <h2 style="font-family: 'Edwardian Script ITC'; font-size: 75px;">World map</h2>
+                <h2 style="font-family: 'Edwardian Script ITC'; font-size: 75px;">League's data</h2>
             </div>
             <!--  图表整体1 -->
             <div id="buttons" class="cd-section">
-                <div class="title">
-                    <h4 style="font-weight: bolder;">test</h4>
-                </div>
-                <div id="913d6c5c710d4efbafc979181ffb340e" class="chart-container" style="width:900px; height:500px; margin-left: 100px;">'''+s+'''</div>
+                '''+s+'''
                 <div class="row">
                     <br>
                 </div>
@@ -447,7 +460,7 @@ def updateScatter(goals, fumble, team):
         )
 
     )
-    return c
+    return c;
 
 
 def pic(country, t):
@@ -468,10 +481,10 @@ def pic(country, t):
     if t == "b":
         html = Markup(updateBar(goals, fumble, lose, team).render_embed())
     else:
-        html = Markup(updateScatter(win, draw, lose).render_embed())
+        html = Markup(updateScatter(goals, fumble, team).render_embed())
     content = etree.HTML(html)
     s = content.xpath("//body")[0]
-    s = etree.tostring(s, pretty_print=True, encoding='utf-8').decode('utf-8')
+    s = etree.tostring(s, pretty_print=True, encoding='utf-8').decode("utf-8")
     # print(s)
     return s
 
