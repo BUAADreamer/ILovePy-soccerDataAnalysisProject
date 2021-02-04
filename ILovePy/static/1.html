@@ -1,0 +1,5455 @@
+<!--
+=========================================================
+Material Kit - v2.0.7
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-kit
+Copyright 2020 Creative Tim (https://www.creative-tim.com/)
+
+Coded by Creative Tim
+
+=========================================================
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        ILovePy
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">-->
+    <!-- CSS Files -->
+    <link href="./assets/css/material-kit.css?v=2.0.7" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="./assets/demo/demo.css" rel="stylesheet" />
+
+	<!-- 图表插入的JS -->
+	<script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+	<script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-liquidfill.min.js"></script>
+	<script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-wordcloud.min.js"></script>
+
+	<!-- 回到顶部 和 音乐播放的 CSS-->
+	<link href="./assets/css/back to top.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body class="index-page sidebar-collapse">
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="http://127.0.0.1:5000/ ">
+                Index</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <i class="material-icons">apps</i> charts
+                    </a>
+                    <div class="dropdown-menu dropdown-with-icons">
+                        <a href="./1" class="dropdown-item" target="_self">
+                            <i class="material-icons">bar_chart</i> Describe
+                        </a>
+                        <a href="./2" class="dropdown-item" target="_self">
+                            <i class="material-icons">border_inner</i> World map
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./analyze" target="_self">
+                        <i class="material-icons">library_add</i> Analyze
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./crawler" target="_self">
+                        <i class="material-icons">cloud_download</i> crawler
+                    </a>
+                </li>
+                <li class="nav-item">
+                    {% if user!="Stranger" %}
+                    <a class="nav-link" href="./logout" target="_self">
+                        <i class="material-icons">domain</i> log out
+                    </a>
+                    {% else %}
+                    <a class="nav-link" href="./login" target="_self">
+                        <i class="material-icons">person_add</i> log in
+                    </a>
+                    {% endif %}
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./profile" target="_self">
+                        <i class="material-icons">account_box</i> profile
+                    </a>
+                </li>
+                <!--          <li class="nav-item">-->
+                <!--            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Follow us on Twitter" rel="nofollow">-->
+                <!--              <i class="fa fa-twitter"></i>-->
+                <!--            </a>-->
+                <!--          </li>-->
+                <!--          <li class="nav-item">-->
+                <!--            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">-->
+                <!--              <i class="fa fa-facebook-square"></i>-->
+                <!--            </a>-->
+                <!--          </li>-->
+                <!--          <li class="nav-item">-->
+                <!--            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">-->
+                <!--              <i class="fa fa-instagram"></i>-->
+                <!--            </a>-->
+                <!--          </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('./assets/img/bg_for_soccer.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+                <div class="brand">
+                    <h1 style="color:white; font-family: Bell MT">Describe</h1><br>
+                    <font face="Microsoft PhagsPaC" size="+2">Use many graphs to show the results.</font>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main main-raised">
+    <div class="section section-basic">
+        <div class="container">
+            <div class="title">
+                <h2 style="font-family: 'Edwardian Script ITC'; font-size: 75px;">Charts</h2>
+            </div>
+            <!--  buttons -->
+            <div id="buttons" class="cd-section">
+
+
+				<!--图表1-->
+
+				<div class="title">
+                    <h3>历届世界杯的观众人数 <br>
+                        <small>世界杯一向是球迷的盛典，而其精彩绝伦的博弈和瞬息万变的局势使得世界杯的每场比赛往往都能吸引众多观众。下面这张图表收集了1930年到2018年为止举办的历届世界杯的观众人数的变化</small>
+                    </h3>
+                </div>
+
+				<div id="f5fb5945aced4a78aceac06ed924bf6a" class="chart-container" style="width:850px; height:450px; margin-left: 120px;">
+					<script>
+					var chart_f5fb5945aced4a78aceac06ed924bf6a = echarts.init(
+						document.getElementById('f5fb5945aced4a78aceac06ed924bf6a'), 'white', {renderer: 'canvas'});
+					var option_f5fb5945aced4a78aceac06ed924bf6a = {
+				"backgroundColor": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0, color: '#c86589'}, {offset: 1, color: '#06a7ff'}], false),
+				"animation": true,
+				"animationThreshold": 2000,
+				"animationDuration": 1000,
+				"animationEasing": "cubicOut",
+				"animationDelay": 0,
+				"animationDurationUpdate": 300,
+				"animationEasingUpdate": "cubicOut",
+				"animationDelayUpdate": 0,
+				"color": [
+					"#c23531",
+					"#2f4554",
+					"#61a0a8",
+					"#d48265",
+					"#749f83",
+					"#ca8622",
+					"#bda29a",
+					"#6e7074",
+					"#546570",
+					"#c4ccd3",
+					"#f05b72",
+					"#ef5b9c",
+					"#f47920",
+					"#905a3d",
+					"#fab27b",
+					"#2a5caa",
+					"#444693",
+					"#726930",
+					"#b2d235",
+					"#6d8346",
+					"#ac6767",
+					"#1d953f",
+					"#6950a1",
+					"#918597"
+				],
+				"series": [
+					{
+						"type": "line",
+						"name": "\u89c2\u4f17\u4eba\u6570",
+						"connectNulls": false,
+						"symbol": "circle",
+						"symbolSize": 6,
+						"showSymbol": true,
+						"smooth": true,
+						"clip": true,
+						"step": false,
+						"data": [
+							[
+								"1930",
+								590.5
+							],
+							[
+								"1934",
+								363.0
+							],
+							[
+								"1938",
+								375.7
+							],
+							[
+								"1950",
+								1045.2
+							],
+							[
+								"1954",
+								768.6
+							],
+							[
+								"1958",
+								819.8
+							],
+							[
+								"1962",
+								893.1
+							],
+							[
+								"1966",
+								1563.1
+							],
+							[
+								"1970",
+								1603.9
+							],
+							[
+								"1974",
+								1865.7
+							],
+							[
+								"1978",
+								1545.7
+							],
+							[
+								"1982",
+								2109.7
+							],
+							[
+								"1986",
+								2394.0
+							],
+							[
+								"1990",
+								2516.2
+							],
+							[
+								"1994",
+								3587.5
+							],
+							[
+								"1998",
+								2785.1
+							],
+							[
+								"2002",
+								2705.1
+							],
+							[
+								"2006",
+								3359.4
+							],
+							[
+								"2010",
+								3178.8
+							],
+							[
+								"2014",
+								3386.8
+							]
+						],
+						"hoverAnimation": true,
+						"label": {
+							"show": true,
+							"position": "top",
+							"color": "white",
+							"margin": 8
+						},
+						"lineStyle": {
+							"show": true,
+							"width": 1,
+							"opacity": 1,
+							"curveness": 0,
+							"type": "solid",
+							"color": "#fff"
+						},
+						"areaStyle": {
+							"opacity": 1,
+							"color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0, color: '#eb64fb'}, {offset: 1, color: '#3fbbff0d'}], false)
+						},
+						"tooltip": {
+							"show": false,
+							"trigger": "item",
+							"triggerOn": "mousemove|click",
+							"axisPointer": {
+								"type": "line"
+							},
+							"showContent": true,
+							"alwaysShowContent": false,
+							"showDelay": 0,
+							"hideDelay": 100,
+							"textStyle": {
+								"fontSize": 14
+							},
+							"borderWidth": 0,
+							"padding": 5
+						},
+						"itemStyle": {
+							"color": "red",
+							"borderColor": "#fff",
+							"borderWidth": 3
+						},
+						"zlevel": 0,
+						"z": 0
+					}
+				],
+				"legend": [
+					{
+						"data": [
+							"\u89c2\u4f17\u4eba\u6570"
+						],
+						"selected": {
+							"\u89c2\u4f17\u4eba\u6570": true
+						},
+						"show": false,
+						"padding": 5,
+						"itemGap": 10,
+						"itemWidth": 25,
+						"itemHeight": 14
+					}
+				],
+				"tooltip": {
+					"show": true,
+					"trigger": "item",
+					"triggerOn": "mousemove|click",
+					"axisPointer": {
+						"type": "line"
+					},
+					"showContent": true,
+					"alwaysShowContent": false,
+					"showDelay": 0,
+					"hideDelay": 100,
+					"textStyle": {
+						"fontSize": 14
+					},
+					"borderWidth": 0,
+					"padding": 5
+				},
+				"xAxis": [
+					{
+						"type": "category",
+						"show": true,
+						"scale": false,
+						"nameLocation": "end",
+						"nameGap": 15,
+						"gridIndex": 0,
+						"axisLine": {
+							"show": false,
+							"onZero": true,
+							"onZeroAxisIndex": 0
+						},
+						"axisTick": {
+							"show": true,
+							"alignWithLabel": false,
+							"inside": false,
+							"length": 25,
+							"lineStyle": {
+								"show": true,
+								"width": 1,
+								"opacity": 1,
+								"curveness": 0,
+								"type": "solid",
+								"color": "#ffffff1f"
+							}
+						},
+						"axisLabel": {
+							"show": true,
+							"position": "top",
+							"color": "#ffffff63",
+							"margin": 30
+						},
+						"inverse": false,
+						"offset": 0,
+						"splitNumber": 5,
+						"boundaryGap": false,
+						"minInterval": 0,
+						"splitLine": {
+							"show": true,
+							"lineStyle": {
+								"show": true,
+								"width": 1,
+								"opacity": 1,
+								"curveness": 0,
+								"type": "solid",
+								"color": "#ffffff1f"
+							}
+						},
+						"data": [
+							"1930",
+							"1934",
+							"1938",
+							"1950",
+							"1954",
+							"1958",
+							"1962",
+							"1966",
+							"1970",
+							"1974",
+							"1978",
+							"1982",
+							"1986",
+							"1990",
+							"1994",
+							"1998",
+							"2002",
+							"2006",
+							"2010",
+							"2014"
+						]
+					}
+				],
+				"yAxis": [
+					{
+						"type": "value",
+						"show": true,
+						"scale": false,
+						"nameLocation": "end",
+						"nameGap": 15,
+						"gridIndex": 0,
+						"axisLine": {
+							"show": true,
+							"onZero": true,
+							"onZeroAxisIndex": 0,
+							"lineStyle": {
+								"show": true,
+								"width": 2,
+								"opacity": 1,
+								"curveness": 0,
+								"type": "solid",
+								"color": "#fff"
+							}
+						},
+						"axisTick": {
+							"show": true,
+							"alignWithLabel": false,
+							"inside": false,
+							"length": 15,
+							"lineStyle": {
+								"show": true,
+								"width": 1,
+								"opacity": 1,
+								"curveness": 0,
+								"type": "solid",
+								"color": "#ffffff1f"
+							}
+						},
+						"axisLabel": {
+							"show": true,
+							"position": "top",
+							"color": "#ffffff63",
+							"margin": 20
+						},
+						"inverse": false,
+						"position": "right",
+						"offset": 0,
+						"splitNumber": 5,
+						"minInterval": 0,
+						"splitLine": {
+							"show": true,
+							"lineStyle": {
+								"show": true,
+								"width": 1,
+								"opacity": 1,
+								"curveness": 0,
+								"type": "solid",
+								"color": "#ffffff1f"
+							}
+						}
+					}
+				],
+				"title": [
+					{
+						"text": "\u4e16\u754c\u676f\u89c2\u4f17\u4eba\u6570\u53d8\u5316",
+						"left": "center",
+						"bottom": "5%",
+						"padding": 5,
+						"itemGap": 10,
+						"textStyle": {
+							"color": "#fff",
+							"fontSize": 16
+						}
+					}
+				]
+			};
+					chart_f5fb5945aced4a78aceac06ed924bf6a.setOption(option_f5fb5945aced4a78aceac06ed924bf6a);
+				</script>
+				</div>
+
+				<div class="row">
+					<br>
+				</div>
+				
+				<div class="row">
+                    <div class="col-md-8 mx-auto" style="padding-left: 140px;">
+                        <button class="btn btn-primary btn-warning">Comments</button>
+                        <button class="btn btn-primary btn-round">Share</button>
+                        <button class="btn btn-primary btn-round btn-info">
+                            <i class="material-icons">favorite</i> Like
+                        </button>
+                        <button class="btn btn-primary btn-fab btn-round btn-info">
+                            <i class="material-icons">favorite</i>
+                        </button>
+                        <button class="btn btn-primary btn-link magic1" style="color: #00BCD4">SHOW</button>
+                    </div>
+                </div>
+				<!--隐藏文本-->
+				<div class="show1" style="display: none;">
+					<h3><small>自1930年以来，世界杯的观众人数总体呈上升趋势。人数最多的时候在1994年世界杯（美国世界杯），达到358.7万人，这跟美国当时繁荣的经济是密不可分的；最少的是1934年，有36.3万人，这是因为该年是世界杯元年。<br><font style="font-style: italic">数据来源：Kaggle</font></small></h3>
+				</div>
+
+				<div class="row">
+					<br>
+				</div>
+				<!--图表2-->
+
+				<div class="title">
+                    <h3>历届世界杯的进球数 <br>
+                        <small>绿茵场上，每一分每一秒都充满着紧张激烈的博弈，而破门的瞬间无疑将气氛推至了顶峰，历届世界杯的总进球数与场均进球数皆在下表中呈现</small><br>
+                    </h3>
+                </div>
+
+				<div id="7c35ca0cb8934ade82a7beb369bdf7d3" class="chart-container" style="width:900px; height:500px; margin-left: 85px;">
+					<script>
+						var chart_7c35ca0cb8934ade82a7beb369bdf7d3 = echarts.init(
+							document.getElementById('7c35ca0cb8934ade82a7beb369bdf7d3'), 'white', {renderer: 'canvas'});
+						var option_7c35ca0cb8934ade82a7beb369bdf7d3 = {
+					"animation": true,
+					"animationThreshold": 2000,
+					"animationDuration": 1000,
+					"animationEasing": "cubicOut",
+					"animationDelay": 0,
+					"animationDurationUpdate": 300,
+					"animationEasingUpdate": "cubicOut",
+					"animationDelayUpdate": 0,
+					"color": [
+						"#5793f3",
+						"#c23531",
+						"#2f4554",
+						"#61a0a8",
+						"#d48265",
+						"#749f83",
+						"#ca8622",
+						"#bda29a",
+						"#6e7074",
+						"#546570",
+						"#c4ccd3",
+						"#f05b72",
+						"#ef5b9c",
+						"#f47920",
+						"#905a3d",
+						"#fab27b",
+						"#2a5caa",
+						"#444693",
+						"#726930",
+						"#b2d235",
+						"#6d8346",
+						"#ac6767",
+						"#1d953f",
+						"#6950a1",
+						"#918597"
+					],
+					"series": [
+						{
+							"type": "bar",
+							"name": "\u8fdb\u7403\u6570",
+							"legendHoverLink": true,
+							"data": [
+								70,
+								70,
+								84,
+								88,
+								140,
+								126,
+								89,
+								89,
+								95,
+								97,
+								102,
+								146,
+								132,
+								115,
+								141,
+								171,
+								161,
+								147,
+								145,
+								171,
+								169
+							],
+							"showBackground": false,
+							"barMinHeight": 0,
+							"barCategoryGap": "20%",
+							"barGap": "30%",
+							"large": false,
+							"largeThreshold": 400,
+							"seriesLayoutBy": "column",
+							"datasetIndex": 0,
+							"clip": true,
+							"zlevel": 0,
+							"z": 2,
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"markLine": {
+								"silent": false,
+								"precision": 2,
+								"label": {
+									"show": true,
+									"position": "top",
+									"margin": 8
+								},
+								"lineStyle": {
+									"show": true,
+									"width": 2,
+									"opacity": 1,
+									"curveness": 0,
+									"type": "dashed"
+								},
+								"data": [
+									{
+										"name": "\u5e73\u5747\u8fdb\u7403\u6570",
+										"yAxis": 121.33333333333333,
+										"symbol": "pin"
+									}
+								]
+							},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						},
+						{
+							"type": "line",
+							"name": "\u5e73\u5747\u8fdb\u7403",
+							"connectNulls": false,
+							"yAxisIndex": 1,
+							"symbolSize": 4,
+							"showSymbol": true,
+							"smooth": false,
+							"clip": true,
+							"step": false,
+							"data": [
+								[
+									"1930",
+									3.888888889
+								],
+								[
+									"1934",
+									4.117647058999999
+								],
+								[
+									"1938",
+									4.666666667
+								],
+								[
+									"1950",
+									4.0
+								],
+								[
+									"1954",
+									5.384615385
+								],
+								[
+									"1958",
+									3.6
+								],
+								[
+									"1962",
+									2.78125
+								],
+								[
+									"1966",
+									2.78125
+								],
+								[
+									"1970",
+									2.96875
+								],
+								[
+									"1974",
+									2.5526315790000003
+								],
+								[
+									"1978",
+									2.6842105259999998
+								],
+								[
+									"1982",
+									2.807692308
+								],
+								[
+									"1986",
+									2.538461538
+								],
+								[
+									"1990",
+									2.211538462
+								],
+								[
+									"1994",
+									2.711538462
+								],
+								[
+									"1998",
+									2.671875
+								],
+								[
+									"2002",
+									2.515625
+								],
+								[
+									"2006",
+									2.296875
+								],
+								[
+									"2010",
+									2.265625
+								],
+								[
+									"2014",
+									2.671875
+								],
+								[
+									"2018",
+									2.640625
+								]
+							],
+							"hoverAnimation": true,
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"lineStyle": {
+								"show": true,
+								"width": 1,
+								"opacity": 1,
+								"curveness": 0,
+								"type": "solid"
+							},
+							"areaStyle": {
+								"opacity": 0
+							},
+							"zlevel": 0,
+							"z": 0,
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						}
+					],
+					"legend": [
+						{
+							"data": [
+								"\u8fdb\u7403\u6570",
+								"\u5e73\u5747\u8fdb\u7403"
+							],
+							"selected": {
+								"\u8fdb\u7403\u6570": true,
+								"\u5e73\u5747\u8fdb\u7403": true
+							},
+							"show": true,
+							"padding": 5,
+							"itemGap": 10,
+							"itemWidth": 25,
+							"itemHeight": 14
+						}
+					],
+					"tooltip": {
+						"show": true,
+						"trigger": "axis",
+						"triggerOn": "mousemove|click",
+						"axisPointer": {
+							"type": "cross"
+						},
+						"showContent": true,
+						"alwaysShowContent": false,
+						"showDelay": 0,
+						"hideDelay": 100,
+						"textStyle": {
+							"fontSize": 14
+						},
+						"borderWidth": 0,
+						"padding": 5
+					},
+					"xAxis": [
+						{
+							"type": "category",
+							"show": true,
+							"scale": false,
+							"nameLocation": "end",
+							"nameGap": 15,
+							"gridIndex": 0,
+							"axisPointer": {
+								"show": true,
+								"type": "shadow"
+							},
+							"inverse": false,
+							"offset": 0,
+							"splitNumber": 5,
+							"minInterval": 0,
+							"splitLine": {
+								"show": false,
+								"lineStyle": {
+									"show": true,
+									"width": 1,
+									"opacity": 1,
+									"curveness": 0,
+									"type": "solid"
+								}
+							},
+							"data": [
+								"1930",
+								"1934",
+								"1938",
+								"1950",
+								"1954",
+								"1958",
+								"1962",
+								"1966",
+								"1970",
+								"1974",
+								"1978",
+								"1982",
+								"1986",
+								"1990",
+								"1994",
+								"1998",
+								"2002",
+								"2006",
+								"2010",
+								"2014",
+								"2018"
+							]
+						}
+					],
+					"yAxis": [
+						{
+							"type": "value",
+							"name": "\u8fdb\u7403\u603b\u6570",
+							"show": true,
+							"scale": false,
+							"nameLocation": "end",
+							"nameGap": 15,
+							"interval": 50,
+							"gridIndex": 0,
+							"axisTick": {
+								"show": true,
+								"alignWithLabel": false,
+								"inside": false
+							},
+							"inverse": false,
+							"offset": 0,
+							"splitNumber": 5,
+							"min": 0,
+							"max": 400,
+							"minInterval": 0,
+							"splitLine": {
+								"show": true,
+								"lineStyle": {
+									"show": true,
+									"width": 1,
+									"opacity": 1,
+									"curveness": 0,
+									"type": "solid"
+								}
+							}
+						},
+						{
+							"type": "value",
+							"name": "\u5e73\u5747\u8fdb\u7403\u6570",
+							"show": true,
+							"scale": false,
+							"nameLocation": "end",
+							"nameGap": 15,
+							"interval": 5,
+							"gridIndex": 0,
+							"inverse": false,
+							"offset": 0,
+							"splitNumber": 5,
+							"min": 0,
+							"max": 5.5,
+							"minInterval": 0,
+							"splitLine": {
+								"show": false,
+								"lineStyle": {
+									"show": true,
+									"width": 1,
+									"opacity": 1,
+									"curveness": 0,
+									"type": "solid"
+								}
+							}
+						}
+					],
+					"title": [
+						{
+							"padding": 5,
+							"itemGap": 10
+						}
+					]
+				};
+						chart_7c35ca0cb8934ade82a7beb369bdf7d3.setOption(option_7c35ca0cb8934ade82a7beb369bdf7d3);
+					</script>
+				</div>
+				
+				<div class="row">
+                    <div class="col-md-8 mx-auto" style="padding-left: 140px;">
+                        <button class="btn btn-primary btn-warning">Comments</button>
+                        <button class="btn btn-primary btn-round">Share</button>
+                        <button class="btn btn-primary btn-round btn-info">
+                            <i class="material-icons">favorite</i> Like
+                        </button>
+                        <button class="btn btn-primary btn-fab btn-round btn-info">
+                            <i class="material-icons">favorite</i>
+                        </button>
+                        <button class="btn btn-primary btn-link magic2" style="color: #00BCD4">SHOW</button>
+                    </div>
+                </div>
+				<!--隐藏文本-->
+				<div class="show2" style="display: none;">
+					<h3><small>自1930至1998年历届世界杯，世界杯进球总数总体呈上升趋势，但近六届进球总数变化幅度不大，其中1998年和2014年分别达到了最大值171，而与此同时，平均进球数却在减少，在1954年有最大值3.58。进球数量上升的主要原因是队伍的扩增和比赛场数的增加，而平均进球数则反映了不同队伍之间的差距在逐渐缩小和总体上日益保守的足球风格<br><font style="font-style: italic">数据来源：Kaggle</font></small></h3>
+				</div>
+				
+				<div class="row">
+					<br>
+				</div>
+				<!--图表3-->
+
+				<div class="title">
+                    <h3>2018年俄罗斯世界杯各国红黄牌数目 <br>
+                        <small>球场上的激烈拼搏中难免会有触犯规则的情况发生。在2018年的俄罗斯世界杯中，东道主共为各支球队开出了以下数目的红黄牌</small>
+                    </h3>
+                </div>
+				<div class="title">
+					<br>
+				</div>
+
+				<div id="f7efb6e5a6b74bd1a04a389c06800785" class="chart-container" style="width:900px; height:500px; margin-left: 85px;">
+					<script>
+						var chart_f7efb6e5a6b74bd1a04a389c06800785 = echarts.init(
+							document.getElementById('f7efb6e5a6b74bd1a04a389c06800785'), 'white', {renderer: 'canvas'});
+						var option_f7efb6e5a6b74bd1a04a389c06800785 = {
+					"animation": true,
+					"animationThreshold": 2000,
+					"animationDuration": 1000,
+					"animationEasing": "cubicOut",
+					"animationDelay": 0,
+					"animationDurationUpdate": 300,
+					"animationEasingUpdate": "cubicOut",
+					"animationDelayUpdate": 0,
+					"color": [
+						"#ff0000",
+						"#ffff00",
+						"#c23531",
+						"#2f4554",
+						"#61a0a8",
+						"#d48265",
+						"#749f83",
+						"#ca8622",
+						"#bda29a",
+						"#6e7074",
+						"#546570",
+						"#c4ccd3",
+						"#f05b72",
+						"#ef5b9c",
+						"#f47920",
+						"#905a3d",
+						"#fab27b",
+						"#2a5caa",
+						"#444693",
+						"#726930",
+						"#b2d235",
+						"#6d8346",
+						"#ac6767",
+						"#1d953f",
+						"#6950a1",
+						"#918597"
+					],
+					"series": [
+						{
+							"type": "bar",
+							"name": "\u7ea2\u724c\u6570",
+							"legendHoverLink": true,
+							"data": [
+								2,
+								2,
+								2,
+								2,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"showBackground": false,
+							"barWidth": 10,
+							"barMinHeight": 0,
+							"barCategoryGap": "20%",
+							"barGap": 0,
+							"large": false,
+							"largeThreshold": 400,
+							"seriesLayoutBy": "column",
+							"datasetIndex": 0,
+							"clip": true,
+							"zlevel": 0,
+							"z": 2,
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						},
+						{
+							"type": "bar",
+							"name": "\u9ec4\u724c\u6570",
+							"legendHoverLink": true,
+							"data": [
+								8,
+								7,
+								7,
+								4,
+								13,
+								8,
+								8,
+								8,
+								8,
+								6,
+								5,
+								4,
+								15,
+								11,
+								11,
+								9,
+								9,
+								9,
+								9,
+								7,
+								7,
+								7,
+								6,
+								6,
+								6,
+								6,
+								5,
+								5,
+								5,
+								5,
+								3,
+								2
+							],
+							"showBackground": false,
+							"barWidth": 10,
+							"barMinHeight": 0,
+							"barCategoryGap": "20%",
+							"barGap": 0,
+							"large": false,
+							"largeThreshold": 400,
+							"seriesLayoutBy": "column",
+							"datasetIndex": 0,
+							"clip": true,
+							"zlevel": 0,
+							"z": 2,
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						}
+					],
+					"legend": [
+						{
+							"data": [
+								"\u7ea2\u724c\u6570",
+								"\u9ec4\u724c\u6570"
+							],
+							"selected": {
+								"\u7ea2\u724c\u6570": true,
+								"\u9ec4\u724c\u6570": true
+							},
+							"show": true,
+							"padding": 5,
+							"itemGap": 10,
+							"itemWidth": 25,
+							"itemHeight": 14
+						}
+					],
+					"tooltip": {
+						"show": true,
+						"trigger": "item",
+						"triggerOn": "mousemove|click",
+						"axisPointer": {
+							"type": "line"
+						},
+						"showContent": true,
+						"alwaysShowContent": false,
+						"showDelay": 0,
+						"hideDelay": 100,
+						"textStyle": {
+							"fontSize": 14
+						},
+						"borderWidth": 0,
+						"padding": 5
+					},
+					"xAxis": [
+						{
+							"show": true,
+							"scale": false,
+							"nameLocation": "end",
+							"nameGap": 15,
+							"gridIndex": 0,
+							"inverse": false,
+							"offset": 0,
+							"splitNumber": 5,
+							"minInterval": 0,
+							"splitLine": {
+								"show": false,
+								"lineStyle": {
+									"show": true,
+									"width": 1,
+									"opacity": 1,
+									"curveness": 0,
+									"type": "solid"
+								}
+							},
+							"data": [
+								"Uruguay",
+								"Brazil",
+								"Australia",
+								"Algeria",
+								"Chile",
+								"Switzerland",
+								"Portugal",
+								"Serbia",
+								"Germany",
+								"France",
+								"Nigeria",
+								"South Africa",
+								"Netherlands",
+								"Slovakia",
+								"Ghana",
+								"Paraguay",
+								"Slovenia",
+								"Mexico",
+								"USA",
+								"Japan",
+								"Honduras",
+								"Argentina",
+								"New Zealand",
+								"South Korea",
+								"Denmark",
+								"England",
+								"Italy",
+								"Ivory Coast",
+								"Cameroon",
+								"Greece",
+								"Spain",
+								"North Korea"
+							]
+						}
+					],
+					"yAxis": [
+						{
+							"show": true,
+							"scale": false,
+							"nameLocation": "end",
+							"nameGap": 15,
+							"gridIndex": 0,
+							"inverse": false,
+							"offset": 0,
+							"splitNumber": 5,
+							"minInterval": 0,
+							"splitLine": {
+								"show": false,
+								"lineStyle": {
+									"show": true,
+									"width": 1,
+									"opacity": 1,
+									"curveness": 0,
+									"type": "solid"
+								}
+							}
+						}
+					],
+					"title": [
+						{
+							"text": "2018\u4fc4\u7f57\u65af\u4e16\u754c\u676f\u5404\u56fd\u7ea2/\u9ec4\u724c\u6570",
+							"padding": 5,
+							"itemGap": 10
+						}
+					]
+				};
+						chart_f7efb6e5a6b74bd1a04a389c06800785.setOption(option_f7efb6e5a6b74bd1a04a389c06800785);
+					</script>
+				</div>
+
+				<div class="row">
+                    <div class="col-md-8 mx-auto" style="padding-left: 140px;">
+                        <button class="btn btn-primary btn-warning">Comments</button>
+                        <button class="btn btn-primary btn-round">Share</button>
+                        <button class="btn btn-primary btn-round btn-info">
+                            <i class="material-icons">favorite</i> Like
+                        </button>
+                        <button class="btn btn-primary btn-fab btn-round btn-info">
+                            <i class="material-icons">favorite</i>
+                        </button>
+                        <button class="btn btn-primary btn-link magic3" style="color: #00BCD4">SHOW</button>
+                    </div>
+                </div>
+				<!--隐藏文本-->
+				<div class="show3" style="display: none;">
+					<h3><small>隐藏的内容——————<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。</small></h3>
+				</div>
+				
+				<div class="row">
+					<br>
+				</div>
+				<!--图表4-->
+				<div class="title">
+                    <h3>世界杯射手们的进球数<br>
+                        <small>在代表世界最高水平的绿茵场上击破球门无疑是每一个顶尖射手证明自己的最佳方式。下面这张图表收集了在1930年到2018年为止举办的世界杯中，球员的总进球数</small>
+                    </h3>
+                </div>
+
+				<div class="title">
+                    <h4>请滑动下方图标，查看你所关心的球员进球数吧！</h4>
+                </div>
+				<div id="74bc59a768704608892e67f28eb0a1f8" class="chart-container" style="width:900px; height:500px; margin-left: 85px;">
+					<script>
+						var chart_74bc59a768704608892e67f28eb0a1f8 = echarts.init(
+							document.getElementById('74bc59a768704608892e67f28eb0a1f8'), 'white', {renderer: 'canvas'});
+						var option_74bc59a768704608892e67f28eb0a1f8 = {
+					"animation": true,
+					"animationThreshold": 2000,
+					"animationDuration": 1000,
+					"animationEasing": "cubicOut",
+					"animationDelay": 0,
+					"animationDurationUpdate": 300,
+					"animationEasingUpdate": "cubicOut",
+					"animationDelayUpdate": 0,
+					"color": [
+						"pink",
+						"#c23531",
+						"#2f4554",
+						"#61a0a8",
+						"#d48265",
+						"#749f83",
+						"#ca8622",
+						"#bda29a",
+						"#6e7074",
+						"#546570",
+						"#c4ccd3",
+						"#f05b72",
+						"#ef5b9c",
+						"#f47920",
+						"#905a3d",
+						"#fab27b",
+						"#2a5caa",
+						"#444693",
+						"#726930",
+						"#b2d235",
+						"#6d8346",
+						"#ac6767",
+						"#1d953f",
+						"#6950a1",
+						"#918597"
+					],
+					"series": [
+						{
+							"type": "bar",
+							"name": "\u8fdb\u7403\u6570",
+							"legendHoverLink": true,
+							"data": [
+								17,
+								14,
+								13,
+								13,
+								12,
+								11,
+								11,
+								10,
+								10,
+								9,
+								9,
+								9,
+								9,
+								9,
+								8,
+								8,
+								8,
+								8,
+								8,
+								8,
+								8,
+								7,
+								7,
+								7,
+								7,
+								7,
+								7,
+								7,
+								7,
+								6,
+								6,
+								6,
+								6,
+								6,
+								6,
+								6,
+								6,
+								6,
+								6,
+								6,
+								6,
+								6,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								5,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								4,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								3,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								2,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1
+							],
+							"showBackground": false,
+							"barMinHeight": 0,
+							"barCategoryGap": "20%",
+							"barGap": "30%",
+							"large": false,
+							"largeThreshold": 400,
+							"seriesLayoutBy": "column",
+							"datasetIndex": 0,
+							"clip": true,
+							"zlevel": 0,
+							"z": 2,
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						}
+					],
+					"legend": [
+						{
+							"data": [
+								"\u8fdb\u7403\u6570"
+							],
+							"selected": {
+								"\u8fdb\u7403\u6570": true
+							},
+							"show": true,
+							"padding": 5,
+							"itemGap": 10,
+							"itemWidth": 25,
+							"itemHeight": 14
+						}
+					],
+					"tooltip": {
+						"show": true,
+						"trigger": "item",
+						"triggerOn": "mousemove|click",
+						"axisPointer": {
+							"type": "line"
+						},
+						"showContent": true,
+						"alwaysShowContent": false,
+						"showDelay": 0,
+						"hideDelay": 100,
+						"textStyle": {
+							"fontSize": 14
+						},
+						"borderWidth": 0,
+						"padding": 5
+					},
+					"xAxis": [
+						{
+							"show": true,
+							"scale": false,
+							"nameLocation": "end",
+							"nameGap": 15,
+							"gridIndex": 0,
+							"inverse": false,
+							"offset": 0,
+							"splitNumber": 5,
+							"minInterval": 0,
+							"splitLine": {
+								"show": false,
+								"lineStyle": {
+									"show": true,
+									"width": 1,
+									"opacity": 1,
+									"curveness": 0,
+									"type": "solid"
+								}
+							},
+							"data": [
+								"KLOSE(GER)",
+								"RONALDO(BRA)",
+								"Just FONTAINE(FRA)",
+								"Gerd MUELLER(FRG)",
+								"PEL\ufffd (Edson Arantes do Nascimento)(BRA)",
+								"M\ufffdLLER(GER)",
+								"Sandor KOCSIS(HUN)",
+								"Helmut RAHN(FRG)",
+								"Grzegorz LATO(POL)",
+								"Paolo ROSSI(ITA)",
+								"VAVA(BRA)",
+								"Karl-Heinz RUMMENIGGE(FRG)",
+								"JAIRZINHO(BRA)",
+								"Uwe SEELER(FRG)",
+								"ADEMIR(BRA)",
+								"LEONIDAS(BRA)",
+								"Guillermo STABILE(ARG)",
+								"Teofilo CUBILLAS(PER)",
+								"Diego MARADONA(ARG)",
+								"Oscar MIGUEZ(URU)",
+								"Gary LINEKER(ENG)",
+								"Johnny REP(NED)",
+								"DAVID VILLA(ESP)",
+								"JAMES(COL)",
+								"Lajos TICHY(HUN)",
+								"RIVALDO(BRA)",
+								"Hans SCHAEFER(FRG)",
+								"SNEIJDER(NED)",
+								"Andrzej SZARMACH(POL)",
+								"Max MORLOCK(FRG)",
+								"CARECA(BRA)",
+								"BEBETO(BRA)",
+								"ROBBEN(NED)",
+								"RIVELINO(BRA)",
+								"Erich PROBST(AUT)",
+								"Mario KEMPES(ARG)",
+								"Sepp HUEGI(SUI)",
+								"Rudi VOELLER(FRG)",
+								"SCH\ufffdRRLE(GER)",
+								"HIGUAIN(ARG)",
+								"Zbigniew BONIEK(POL)",
+								"Oldrich NEJEDLY(TCH)",
+								"MESSI(ARG)",
+								"ROM\ufffdRIO (Rom\ufffdrio de Souza Faria)(BRA)",
+								"Pedro CEA(URU)",
+								"GARRINCHA(BRA)",
+								"Silvio PIOLA(ITA)",
+								"Franz BECKENBAUER(FRG)",
+								"Peter McPARLAND(NIR)",
+								"Roger MILLA(CMR)",
+								"MORIENTES(ESP)",
+								"Davor SUKER(CRO)",
+								"RAUL(ESP)",
+								"CAHILL(AUS)",
+								"Salvatore SCHILLACI(ITA)",
+								"PODOLSKI(GER)",
+								"EUSEBIO (Eusebio da Silva Ferreira)(POR)",
+								"Christian VIERI(ITA)",
+								"Geoff HURST(ENG)",
+								"Valentin IVANOV(URS)",
+								"Kennet ANDERSSON(SWE)",
+								"KLINSMANN(GER)",
+								"Helmut HALLER(FRG)",
+								"V. PERSIE(NED)",
+								"Tomas SKUHRAVY(TCH)",
+								"Gyula ZSENGELLER(HUN)",
+								"Gyorgy SAROSI(HUN)",
+								"Juan SCHIAFFINO(URU)",
+								"CHICO(BRA)",
+								"Jan CEULEMANS(BEL)",
+								"Kurt HAMRIN(SWE)",
+								"Carlos BORGES(URU)",
+								"Andre ABEGGLEN(SUI)",
+								"Preben ELKJAER LARSEN(DEN)",
+								"Drazen JERKOVIC(YUG)",
+								"Dominique ROCHETEAU(FRA)",
+								"BAGGIO R.(ITA)",
+								"Valeriy PORKUYAN(URS)",
+								"Nandor HIDEGKUTI(HUN)",
+								"KROOS(GER)",
+								"Joe JORDAN(SCO)",
+								"Alessandro ALTOBELLI(ITA)",
+								"Daniel BERTONI(ARG)",
+								"OSCAR(BRA)",
+								"DONOVAN(USA)",
+								"Anatoly BISHOVETS(URS)",
+								"Oleg SALENKO(RUS)",
+								"Bert PATENAUDE(USA)",
+								"HERNANDEZ(MEX)",
+								"Zdenek ZIKAN(TCH)",
+								"Bobby CHARLTON(ENG)",
+								"Hans KRANKL(AUT)",
+								"DEMPSEY(USA)",
+								"PAULETA(POR)",
+								"Claudio CANIGGIA(ARG)",
+								"Jorge VALDANO(ARG)",
+								"DAVID LUIZ(BRA)",
+								"Michel PLATINI(FRA)",
+								"CRESPO(ARG)",
+								"FORLAN(URU)",
+								"Igor CHISLENKO(URS)",
+								"Rene HOUSEMAN(ARG)",
+								"Leopoldo LUQUE(ARG)",
+								"Lothar MATTHAEUS(FRG)",
+								"TOMASSON(DEN)",
+								"Florin RADUCIOIU(ROU)",
+								"Florian ALBERT(HUN)",
+								"Ferenc PUSKAS(HUN)",
+								"Ferenc BENE(HUN)",
+								"Martin DAHLIN(SWE)",
+								"Gino COLAUSSI(ITA)",
+								"WALTER(FRG)",
+								"Robert BALLAMAN(SUI)",
+								"Estanislao BASORA(ESP)",
+								"ZICO(BRA)",
+								"Ernest WILIMOWSKI(POL)",
+								"ZARRA(ESP)",
+								"Ralf EDSTROM(SWE)",
+								"Angelo SCHIAVIO(ITA)",
+								"Marcelo SALAS(CHI)",
+								"Emilio BUTRAGUENO(ESP)",
+								"VIERI(ITA)",
+								"Alcides GHIGGIA(URU)",
+								"Edmund CONEN(GER)",
+								"Agne SIMONSSON(SWE)",
+								"Roger PIANTONI(FRA)",
+								"C. SAMPAIO(BRA)",
+								"VITTEK(SVK)",
+								"Alain GIRESSE(FRA)",
+								"Roger HUNT(ENG)",
+								"Alfred KOERNER(AUT)",
+								"Sven JONASSON(SWE)",
+								"Toza VESELINOVIC(YUG)",
+								"BALTAZAR(BRA)",
+								"BATISTUTA(ARG)",
+								"Arne NYBERG(SWE)",
+								"TEVEZ(ARG)",
+								"BERGKAMP(NED)",
+								"Raimundo ORSI(ITA)",
+								"Stefan DOBAY(ROU)",
+								"TOSTAO(BRA)",
+								"Suat MAMAT(TUR)",
+								"SUAREZ(URU)",
+								"Andreas BREHME(FRG)",
+								"BALLACK(GER)",
+								"STOITCHKOV(BUL)",
+								"BOUBA DIOP(SEN)",
+								"SOCRATES(BRA)",
+								"Stig SUNDQVIST(SWE)",
+								"Theodor WAGNER(AUT)",
+								"Thierry HENRY(FRA)",
+								"Bernard GENGHINI(FRA)",
+								"Buhran SARGUN(TUR)",
+								"Tomas BROLIN(SWE)",
+								"SHAQIRI(SUI)",
+								"\ufffdZIL(GER)",
+								"RUIZ B.(CRC)",
+								"Juan ANSELMO(URU)",
+								"Kazimierz DEYNA(POL)",
+								"Karl-Erik PALMER(SWE)",
+								"Gerry ARMSTRONG(NIR)",
+								"Geza TOLDI(HUN)",
+								"Gianni RIVERA(ITA)",
+								"Gigi RIVA(ITA)",
+								"KHEDIRA(GER)",
+								"Gustav WETTERSTROM(SWE)",
+								"G\ufffdTZE(GER)",
+								"HAGI(ROU)",
+								"Juergen KLINSMANN(GER)",
+								"Juergen KLINSMANN(FRG)",
+								"Juan HOHBERG(URU)",
+								"HENRY(FRA)",
+								"ROMEU(BRA)",
+								"Jose Luis CAMINERO(ESP)",
+								"HONDA(JPN)",
+								"HUMMELS(GER)",
+								"Jorge BURRUCHAGA(ARG)",
+								"Johan CRUYFF(NED)",
+								"Harry ANDERSSON(SWE)",
+								"Hector SOCORRO(CUB)",
+								"Jean NICOLAS(FRA)",
+								"Jackie FATTON(SUI)",
+								"JULIO SALINAS(ESP)",
+								"JOSE TORRES(POR)",
+								"JOSE AUGUSTO(POR)",
+								"ILHAN MANSIZ(TUR)",
+								"L. FABIANO(BRA)",
+								"Gabriel BATISTUTA(ARG)",
+								"LARSSON(SWE)",
+								"GERRARD(ENG)",
+								"RODRIGUEZ(ARG)",
+								"ROBERTO DINAMITE(BRA)",
+								"CUEVAS(PAR)",
+								"Pierre LITTBARSKI(FRG)",
+								"Carlos PEUCELLE(ARG)",
+								"Paul BREITNER(FRG)",
+								"PREGUINHO(BRA)",
+								"PERACIO(BRA)",
+								"DIDI(BRA)",
+								"DIRCEU(BRA)",
+								"DJABOU(ALG)",
+								"Oliver BIERHOFF(GER)",
+								"David PLATT(ENG)",
+								"Nat LOFTHOUSE(ENG)",
+								"NEYMAR JR(BRA)",
+								"Dusan BAJEVIC(YUG)",
+								"E. VALENCIA(ECU)",
+								"Milan GALIC(YUG)",
+								"Eduard MALOFEYEV(URS)",
+								"Enzo SCIFO(BEL)",
+								"FALCAO(BRA)",
+								"MICHEL(ESP)",
+								"Luis ARTIME(ARG)",
+								"Leopold KIELHOLZ(SUI)",
+								"Leopold ANOUL(BEL)",
+								"Leonel SANCHEZ(CHI)",
+								"Laszlo KISS(HUN)",
+								"Dennis BERGKAMP(NED)",
+								"Ivica BEK(YUG)",
+								"ALEXIS(CHI)",
+								"WILMOTS(BEL)",
+								"Wolfgang OVERATH(FRG)",
+								"Zoltan CZIBOR(HUN)",
+								"A. GYAN(GHA)",
+								"Walter SCHACHNER(AUT)",
+								"AMARILDO(BRA)",
+								"Silvestre IGOA(ESP)",
+								"A. DELGADO(ECU)",
+								"Javier VALDIVIA(MEX)",
+								"LAUDRUP B.(DEN)",
+								"O. BRAVO(MEX)",
+								"Darko PANCEV(YUG)",
+								"Slobodan KOMLJENOVIC(YUG)",
+								"GREEN(USA)",
+								"BEAUSEJOUR(CHI)",
+								"Nico CLAESEN(BEL)",
+								"Davor JOZIC(YUG)",
+								"Nasko SIRAKOV(BUL)",
+								"GOMEZ(CRC)",
+								"Stanislav KARASI(YUG)",
+								"BENZEMA(FRA)",
+								"L. SUAREZ(URU)",
+								"OKAZAKI(JPN)",
+								"Derek KEVAN(ENG)",
+								"Gavril BALINT(ROU)",
+								"Hector YAZALDE(ARG)",
+								"Klaus ALLOFS(FRG)",
+								"Salah ASSAD(ALG)",
+								"BLIND(NED)",
+								"Salaheddine BASSIR(MAR)",
+								"Oleg BLOKHIN(URS)",
+								"Heinz FLOHE(FRG)",
+								"Klaus FISCHER(FRG)",
+								"Kosta TOMASEVIC(YUG)",
+								"OWEN(ENG)",
+								"DROGBA(CIV)",
+								"WANCHOPE P.(CRC)",
+								"Jean-Pierre PAPIN(FRA)",
+								"Gabor POLOSKEI(HUN)",
+								"DUMITRESCU(ROU)",
+								"Jean VINCENT(FRA)",
+								"GOIKOETXEA(ESP)",
+								"Obdulio VARELA(URU)",
+								"Didier SIX(FRA)",
+								"STOJKOVIC(YUG)",
+								"JOSIMAR(BRA)",
+								"GARCIA(MEX)",
+								"Ariel ORTEGA(ARG)",
+								"Arie HAAN(NED)",
+								"Lefter KUCUKANDONYADIS(TUR)",
+								"EDER(BRA)",
+								"TIAGO(POR)",
+								"JONK(NED)",
+								"ELANO(BRA)",
+								"Antonin PUC(TCH)",
+								"TONI(ITA)",
+								"Lilian THURAM(FRA)",
+								"Michael OWEN(ENG)",
+								"McCARTHY(RSA)",
+								"JISUNG(KOR)",
+								"INAMOTO(JPN)",
+								"Mc BRIDE(USA)",
+								"Yannick STOPYRA(FRA)",
+								"Laszlo FAZEKAS(HUN)",
+								"Atilio CREMASCHI(CHI)",
+								"LUIS ENRIQUE(ESP)",
+								"Hristo BONEV(BUL)",
+								"Jaime RAMIREZ(CHI)",
+								"Dieter MUELLER(FRG)",
+								"NEUVILLE(GER)",
+								"BAGGIO D.(ITA)",
+								"NELINHO(BRA)",
+								"Djordje VUJADINOVIC(YUG)",
+								"GERVINHO(CIV)",
+								"JULINHO(BRA)",
+								"JUNIOR(BRA)",
+								"LUKAKU(BEL)",
+								"T SILVA(BRA)",
+								"B. WILFRIED(CIV)",
+								"JUNGSOO(KOR)",
+								"A. AYEW(GHA)",
+								"Ladislav PETRAS(TCH)",
+								"Wlodimierz SMOLAREK(POL)",
+								"BOSACKI(POL)",
+								"Kenny DALGLISH(SCO)",
+								"Roland SANDBERG(SWE)",
+								"Roberto CABANAS(PAR)",
+								"HASAN SAS(TUR)",
+								"KEANE(IRL)",
+								"Guillermo SUBIABRE(CHI)",
+								"R. de BOER(NED)",
+								"C. TENORIO(ECU)",
+								"R. MARQUEZ(MEX)",
+								"R. HIERRO(ESP)",
+								"Roberto BETTEGA(ITA)",
+								"Romeo BENETTI(ITA)",
+								"Jose SASIA(URU)",
+								"Rudi VOELLER(GER)",
+								"Wilfried VAN MOER(BEL)",
+								"Phillip COCU(NED)",
+								"S H HWANG(KOR)",
+								"Philippe ALBERT(BEL)",
+								"Roberto BONINSEGNA(ITA)",
+								"Roberto BAGGIO(ITA)",
+								"Joachim STREICH(GDR)",
+								"ROMMEDAHL(DEN)",
+								"Julio ABBADIE(URU)",
+								"Julio Cesar ROMERO(PAR)",
+								"ZIZINHO(BRA)",
+								"Raymond KOPA(FRA)",
+								"ROSICKY(CZE)",
+								"RONALDO(POR)",
+								"AMOKACHI(NGA)",
+								"H. CAMARA(SEN)",
+								"Jozsef TOTH(HUN)",
+								"Riccardo CARAPELLESE(ITA)",
+								"ROBINHO(BRA)",
+								"Rob RENSENBRINK(NED)",
+								"CHUNGYONG(KOR)",
+								"A.INIESTA(ESP)",
+								"Juan AGUERO(PAR)",
+								"Robert PROSINECKI(CRO)",
+								"Carlos VIDAL(CHI)",
+								"Bryan ROBSON(ENG)",
+								"Jose PARODI(PAR)",
+								"SLIMANI(ALG)",
+								"John WARK(SCO)",
+								"PINGA(BRA)",
+								"Hans JEPPSSON(SWE)",
+								"PERI\ufffdI?(CRO)",
+								"DE BRUYNE(BEL)",
+								"PELAEZ(MEX)",
+								"Karl HOHMANN(GER)",
+								"Johann HORVATH(AUT)",
+								"Peter PALOTAS(HUN)",
+								"Johan NEESKENS(NED)",
+								"SOKRATIS(GRE)",
+								"DEL PIERO(ITA)",
+								"DI MARIA(ARG)",
+								"PAK Seung Zin(PRK)",
+								"Hector CASTRO(URU)",
+								"G. DOS SANTOS(MEX)",
+								"Zinedine ZIDANE(FRA)",
+								"SERGINHO(BRA)",
+								"Bernard VOORHOOF(BEL)",
+								"Bernardo REDIN(COL)",
+								"Giuseppe MEAZZA(ITA)",
+								"Giovanni FERRARI(ITA)",
+								"HOLMAN(AUS)",
+								"Jose ALTAFINI(BRA)",
+								"Zeljko CAJKOVSKI(YUG)",
+								"Jorge TORO(CHI)",
+								"WIJNALDUM(NED)",
+								"Patrick KLUIVERT(NED)",
+								"Jorge ROMERO(PAR)",
+								"Pal TITKOS(HUN)",
+								"Billy HAMILTON(NIR)",
+								"SCHWEINSTEIGER(GER)",
+								"Pablo DORADO(URU)",
+								"Giacomo BULGARELLI(ITA)",
+								"POGBA(FRA)",
+								"ADRIANO(BRA)",
+								"Ramon Maria CALDERE(ESP)",
+								"JAIR(BRA)",
+								"Iordan LETCHKOV(BUL)",
+								"Mario ZAGALLO(BRA)",
+								"Adrian KNUP(SUI)",
+								"FREI(SUI)",
+								"MODERATO(BRA)",
+								"Vaclav HOVORKA(TCH)",
+								"MAND\ufffdUKI?(CRO)",
+								"J. BORGETTI(MEX)",
+								"Abdeljalil HADDA(MAR)",
+								"F. TORRES(ESP)",
+								"Marco TARDELLI(ITA)",
+								"Emmanuel PETIT(FRA)",
+								"Alberto GALLARDO(PER)",
+								"Luis MONTI(ARG)",
+								"Ivor BROADIS(ENG)",
+								"JACKSON M.(COL)",
+								"Abdel Rahman FAWZI(EGY)",
+								"FRED(BRA)",
+								"Emmanuel AMUNEKE(NGA)",
+								"Ernie BRANDTS(NED)",
+								"Viktor PONEDELNIK(URS)",
+								"UMIT DAVALA(TUR)",
+								"UCHE(NGA)",
+								"Igor BELANOV(URS)",
+								"Ernest LEHNER(GER)",
+								"MUSA(NGA)",
+								"M B HONG(KOR)",
+								"Tibor NYILASI(HUN)",
+								"J HERNANDEZ(MEX)",
+								"J H AHN(KOR)",
+								"MBOMA(CMR)",
+								"MUNTARI(GHA)",
+								"Abdelrazzak KHAIRI(MAR)",
+								"Eladio ROJAS(CHI)",
+								"Anatoli ILYIN(URS)",
+								"MULLER(BRA)",
+								"Victoriano IRIARTE(URU)",
+								"Aleksandar PETAKOVIC(YUG)",
+								"Theodore WHITMORE(JAM)",
+								"Viorel MOLDOVAN(ROU)",
+								"F. AMIN(KSA)",
+								"Marc DE GRIJSE(BEL)",
+								"Adolfo ZUMELZU(ARG)",
+								"VIEIRA(FRA)",
+								"MANICHE(POR)",
+								"Maryan WISNIESKI(FRA)",
+								"Ernst OCWIRK(AUT)",
+								"Ernst STOJASPAL(AUT)",
+								"VALENCIA(COL)",
+								"MATERAZZI (ITA)",
+								"Marc WILMOTS(BEL)",
+								"Ivica SURJAK(YUG)",
+								"Aleksandr ZAVAROV(URS)",
+								"Erwin VANDENBERGH(BEL)",
+								"Fernando QUIRARTE(MEX)",
+								"Luis CUBILLA(URU)",
+								"Trevor FRANCIS(ENG)",
+								"MEMPHIS(NED)",
+								"Andre MASCHINOT(FRA)",
+								"Emmanuel SANON(HAI)",
+								"Ivor ALLCHURCH(WAL)",
+								"Martin PETERS(ENG)",
+								"Adolf SCHERER(TCH)",
+								"MALOUDA(FRA)",
+								"FER(NED)",
+								"FELLAINI(BEL)",
+								"Christophe DUGARRY(FRA)",
+								"Willhelm HAHNEMANN(GER)",
+								"KOKORIN(RUS)",
+								"Paul CALIGIURI(USA)",
+								"Colin CLARKE(NIR)",
+								"MILLAR(CHI)",
+								"Paul MARINER(ENG)",
+								"Cayetano RE(PAR)",
+								"Willy JAEGGI(SUI)",
+								"KOPUNEK(SVK)",
+								"Peter BEARDSLEY(ENG)",
+								"KONE B.(CIV)",
+								"Christian LOPEZ(FRA)",
+								"Pavel YAKOVENKO(URS)",
+								"Pedro MONZON(ARG)",
+								"Peter LORIMER(SCO)",
+								"Giuseppe GIANNINI(ITA)",
+								"KOLLER(CZE)",
+								"Paul SCHOLES(ENG)",
+								"Pedro PASCULLI(ARG)",
+								"Pedro TROGLIO(ARG)",
+								"Pedro ROCHA(URU)",
+								"Cesar LOPEZ FRETES(PAR)",
+								"Claudio LOPEZ(ARG)",
+								"Petar RADAKOVIC(YUG)",
+								"Cesar CUETO(PER)",
+								"Gino PARIANI(USA)",
+								"MANECA(BRA)",
+								"Y.GOLMOHAMMADI(IRN)",
+								"Fernando RIERA(CHI)",
+								"PETRESCU(ROU)",
+								"PJANI?(BIH)",
+								"PIRRI(ESP)",
+								"KRYSZALOWICZ(POL)",
+								"MOLLER(DEN)",
+								"PIRLO (ITA)",
+								"Eugene EKEKE(CMR)",
+								"DANI(ESP)",
+								"Eugen WALASCHEK(SUI)",
+								"Wilson ORUMA(NGA)",
+								"KUYT(NED)",
+								"MOKOENA(RSA)",
+								"German ACEROS(COL)",
+								"Gerhard RODAX(AUT)",
+								"Kakhi ASATIANI(URS)",
+								"YASSER(KSA)",
+								"ZAMBROTTA (ITA)",
+								"Kalman MESZOLY(HUN)",
+								"Wim KIEFT(NED)",
+								"Erwin SANCHEZ(BOL)",
+								"M.PEREIRA(URU)",
+								"D.RODRIGUEZ(URU)",
+								"F. FONSECA(MEX)",
+								"Florea DUMITRACHE(ROU)",
+								"MAICON(BRA)",
+								"KOREN(SVN)",
+								"Conny TORSTENSSON(SWE)",
+								"Florencio AMARILLA(PAR)",
+								"Patrick VERVOORT(BEL)",
+								"Constantin STANCIU(ROU)",
+								"Willy VAN DE KERKHOF(NED)",
+								"Craig BURLEY(SCO)",
+								"FERDINAND(ENG)",
+								"Paolo BARISON(ITA)",
+								"MNARI (TUN)",
+								"D.FORLAN(URU)",
+								"Pal TELEKI(HUN)",
+								"Pablo BENGOECHEA(URU)",
+								"PUYOL(ESP)",
+								"Giampiero BONIPERTI(ITA)",
+								"PRINCE(GHA)",
+								"PRECIADO(COL)",
+								"D. GODIN(URU)",
+								"Francesco GRAZIANI(ITA)",
+								"Gerry HITCHENS(ENG)",
+								"Carlos VALDERRAMA(COL)",
+								"KHUMALO(RSA)",
+								"Glenn STROMBERG(SWE)",
+								"KIM Jong Boo(KOR)",
+								"ROMARIC(CIV)",
+								"ROJO(ARG)",
+								"CHOI Soon Ho(KOR)",
+								"H. ALMEIDA(POR)",
+								"H M SON(KOR)",
+								"ROBERTO(BRA)",
+								"WYNALDA(USA)",
+								"ZITO(BRA)",
+								"RIVEROS(PAR)",
+								"MATIP(CMR)",
+								"KAK\ufffd(BRA)",
+								"KALINICHENKO(UKR)",
+								"RILDO(BRA)",
+								"RIEPER(DEN)",
+								"FRIACA(BRA)",
+								"CHUNSOO(KOR)",
+								"KALOU(CIV)",
+								"RIBERY(FRA)",
+								"REZA(IRN)",
+								"CIMIROTIC(SVN)",
+								"REKDAL(NOR)",
+								"MATUIDI(FRA)",
+								"Fahad AL GHESHEYAN(KSA)",
+								"H. FLO(NOR)",
+								"WRIGHT(CRC)",
+								"MATHIS(USA)",
+								"FRINGS(GER)",
+								"MATA(ESP)",
+								"Julio CORTES(URU)",
+								"Ramon HEREDIA(ARG)",
+								"CH. AR\ufffdNGUIZ(CHI)",
+								"Ramon DIAZ(ARG)",
+								"Ramaz SHENGELIA(URS)",
+								"Rajko MITIC(YUG)",
+								"Rainer BONHOF(FRG)",
+								"Julio PEREZ(URU)",
+								"HA S. J.(KOR)",
+								"Radivoje OGNJANOVIC(YUG)",
+								"RONALDINHO(BRA)",
+								"Rabah MADJER(ALG)",
+								"K H LEE(KOR)",
+								"K H SEOL(KOR)",
+								"RUSOL(UKR)",
+								"CHIQUI ARCE(PAR)",
+								"RUI COSTA(POR)",
+								"H. R. ESTILI(IRN)",
+								"FRIEDRICH(GER)",
+								"ROONEY(ENG)",
+								"Fabio CAPELLO(ITA)",
+								"Faisal AL DAKHIL(KUW)",
+								"REINALDO(BRA)",
+								"REID(NZL)",
+								"Wilbur CUSH(NIR)",
+								"R CARLOS(BRA)",
+								"ZIDANE(FRA)",
+								"QUINTERO(COL)",
+								"Graeme SOUNESS(SCO)",
+								"Carlo GALLI(ITA)",
+								"QUAGLIARELLA(ITA)",
+								"Carlos BABINGTON(ARG)",
+								"MARCHISIO(ITA)",
+								"Karl KOLLER(AUT)",
+								"Predrag MIJATOVIC(YUG)",
+								"Gosta DUNKER(SWE)",
+								"R. BAGGIO(ITA)",
+								"YEKINI(NGA)",
+								"Gordon STRACHAN(SCO)",
+								"Plamen GETOV(BUL)",
+								"Pietro FERRARIS(ITA)",
+								"Pietro ANASTASI(ITA)",
+								"KIKO(ESP)",
+								"Goran VLAOVIC(CRO)",
+								"Wilf MANNION(ENG)",
+								"FERNANDINHO(BRA)",
+								"FERNANDES(SUI)",
+								"R MARQUEZ(MEX)",
+								"Gregoire MBIDA(CMR)",
+								"REBROV(UKR)",
+								"R.MORALES(URU)",
+								"Gustavo MOSCOSO(CHI)",
+								"CLODOALDO(BRA)",
+								"RAPAIC(CRO)",
+								"ZIGIC(SCG)",
+								"Gunnar GREN(SWE)",
+								"AGHAHOWA(NGA)",
+								"MEHMEDI(SUI)",
+								"RADEBE(RSA)",
+								"KERZHAKOV(RUS)",
+								"KEWELL(AUS)",
+								"COSTLY(HON)",
+								"KHALID ISMAIL(UAE)",
+								"AMANCIO(ESP)",
+								"MENDEZ(ECU)",
+								"R. MEIRELES(POR)",
+								"MENDIETA(ESP)",
+								"FINIDI(NGA)",
+								"MARCIO SANTOS(BRA)",
+								"CROUCH(ENG)",
+								"Guillermo LA ROSA(PER)",
+								"MERTENS(BEL)",
+								"A.PEREIRA(URU)",
+								"Gerard SOLER(FRA)",
+								"PARK Chang Sun(KOR)",
+								"DE ROSSI(ITA)",
+								"Dinko DERMENDZHIEV(BUL)",
+								"ALEXANDERSSON(SWE)",
+								"Emerich DEMBROVSCHI(ROU)",
+								"LOZANO(COL)",
+								"Fredy BICKEL(SUI)",
+								"Djamel ZIDANE(ALG)",
+								"Mario EVARISTO(ARG)",
+								"NANI(POR)",
+								"Dmitri RADCHENKO(RUS)",
+								"Dobromir JECHEV(BUL)",
+								"NAKATA(JPN)",
+								"NAKAMURA(JPN)",
+								"Luis VARGAS PENA(PAR)",
+								"LUIS REGUEIRO(ESP)",
+								"GERSON(BRA)",
+								"Dragan DZAJIC(YUG)",
+								"Fritz WALTER(FRG)",
+								"Mario STANIC(CRO)",
+								"Dragan STOJKOVIC(YUG)",
+								"Egisto PANDOLFINI(ITA)",
+								"N. KOVAC(CRO)",
+								"Eduardo LAING(HON)",
+								"XHAKA(SUI)",
+								"Mutiu ADEPOJU(NGA)",
+								"GILARDINO (ITA)",
+								"GILBERTO(BRA)",
+								"Erol KESKIN(TUR)",
+								"GIROUD(FRA)",
+								"Niall QUINN(IRL)",
+								"David TREZEGUET(FRA)",
+								"Nejib GHOMMIDH(TUN)",
+								"ALFREDO II(BRA)",
+								"YOO S. C.(KOR)",
+								"Wolfgang WEBER(FRG)",
+								"GOMEZ R.(CRC)",
+								"LI Dong Woon(PRK)",
+								"LIEDSON(POR)",
+								"LINKE(GER)",
+								"LJUBIJANKI?(SVN)",
+								"NUNO GOMES(POR)",
+								"Dennis WILSHAW(ENG)",
+								"Marcos COLL(COL)",
+								"Dick NANNINGA(NED)",
+								"NOMVETHE(RSA)",
+								"LJUNGBERG(SWE)",
+								"Emile VEINANTE(FRA)",
+								"Freddy RINCON(COL)",
+								"Marino KLINGER(COL)",
+								"NJANKA(CMR)",
+								"Emil KOSTADINOV(BUL)",
+								"NILTON SANTOS(BRA)",
+								"Luis SOUZA(PER)",
+								"D\ufffdEKO(BIH)",
+								"Lajos DETARI(HUN)",
+								"Mustafa ERTAN(TUR)",
+								"Miguel BRINDISI(ARG)",
+								"Lothar EMMERICH(FRG)",
+								"Miguel BENITEZ(PAR)",
+								"EMRE(TUR)",
+								"ALCARAZ(PAR)",
+								"Michel DE WOLF(BEL)",
+								"ENDO(JPN)",
+								"Lubos KUBIK(TCH)",
+								"Luc NILIS(BEL)",
+								"Michael LAUDRUP(DEN)",
+								"G. TORRADO(MEX)",
+								"Lucien LAURENT(FRA)",
+								"Ludo COECK(BEL)",
+								"Luis FLORES(MEX)",
+								"Ludovico AVIO(ARG)",
+
+								"Masashi NAKAYAMA(JPN)",
+								"Ebbe SAND(DEN)",
+								"Luis FERNANDEZ(FRA)",
+								"Maxime BOSSIS(FRA)",
+								"Luigi DI BIAGIO(ITA)",
+								"Matthias SINDELAR(AUT)",
+								"ETO'O(CMR)",
+								"ETOO(CMR)",
+								"ELOY(ESP)",
+								"Marton ESTERHAZY(HUN)",
+								"Edgar DAVIDS(NED)",
+								"Lazar SZENTES(HUN)",
+								"Mustafa EL HADJI(MAR)",
+								"E Y LEE(KOR)",
+								"Lakhdar BELLOUMI(ALG)",
+								"Marius TRESOR(FRA)",
+								"Mark WRIGHT(ENG)",
+								"Luis RAMIREZ(SLV)",
+								"Mordechai SPIEGLER(ISR)",
+								"Mokhtar DOUIEB(TUN)",
+								"Fulvio NESTI(ITA)",
+								"Mohammed CHAOUCH(MAR)",
+								"Leen VENTE(NED)",
+								"Mihaly LANTOS(HUN)",
+								"Martin HOFFMANN(GDR)",
+								"EDINHO(BRA)",
+								"EDMILSON(BRA)",
+								"Lennart SKOGLUND(SWE)",
+								"Leo CLIJSTERS(BEL)",
+								"Milos MILUTINOVIC(YUG)",
+								"Milan LUHOVY(TCH)",
+								"Martin JORGENSEN(DEN)",
+								"Milan DVORAK(TCH)",
+								"ADELARDO(ESP)",
+								"Frantisek SVOBODA(TCH)",
+								"David NAREY(SCO)",
+								"Nicolae KOVACS(ROU)",
+								"Oleg PROTASOV(URS)",
+								"DIAMANTINO(POR)",
+								"DIAO(SEN)",
+								"Ernesto BELIS(ARG)",
+								"Georgi ASPARUKHOV(BUL)",
+								"DINDANE(CIV)",
+								"Georges GRUN(BEL)",
+								"P. ARMERO(COL)",
+								"ALLB\ufffdCK(SWE)",
+								"Georges BREGY(SUI)",
+								"Kevin SHEEDY(IRL)",
+								"Yvon DOUIS(FRA)",
+								"Khoren OGANESIAN(URS)",
+								"Ove GRAHN(SWE)",
+								"Otto SIFFLING(GER)",
+								"Osvaldo ARDILES(ARG)",
+								"Kick SMIT(NED)",
+								"Oscar RUGGERI(ARG)",
+								"Oscar HEISSERER(FRA)",
+								"Kiki ANTENEN(SUI)",
+								"Oreste Omar CORBATTA(ARG)",
+								"M. ZEWLAKOW(POL)",
+								"Gaston TAUMENT(NED)",
+								"ACIMOVIC(SVN)",
+								"DI NATALE(ITA)",
+								"PAK Doo Ik(PRK)",
+								"Ernesto VIDAL(URU)",
+								"DELGADO(ECU)",
+								"Karl SESTA(AUT)",
+								"DE VRIJ(NED)",
+								"Karl ZISCHEK(AUT)",
+								"DECO(POR)",
+								"MORISHIMA(JPN)",
+								"DEFOE(ENG)",
+								"ABOU TARIKA(ANG)",
+								"ALONSO(ESP)",
+								"Karl-Heinz SCHNELLINGER(FRG)",
+								"Francisco VARALLO(ARG)",
+								"Karlheinz RIEDLE(GER)",
+								"MPHELA(RSA)",
+								"Mauricio PINEDA(ARG)",
+								"Gerard HAUSSER(FRA)",
+								"DEMICHELIS(ARG)",
+								"ALOISI(AUS)",
+								"Karoly CSAPO(HUN)",
+								"Karoly SANDOR(HUN)",
+								"PANTELI?(SRB)",
+								"PALERMO(ARG)",
+								"Georgi SOKOLOV(BUL)",
+								"Erno SOLYMOSI(HUN)",
+								"Wlodzimierz CIOLEK(POL)",
+								"Ermindo ONEGA(ARG)",
+								"Enrique BORJA(MEX)",
+								"Ermes MUCCINELLI(ITA)",
+								"Dan PETRESCU(ROU)",
+								"ODEMWINGIE(NGA)",
+								"Daniel FONSECA(URU)",
+								"Daniel PASSARELLA(ARG)",
+								"HAKAN SUKUR(TUR)",
+								"Yuri GAVRILOV(URS)",
+								"Daniele MASSARO(ITA)",
+								"Frank VERCAUTEREN(BEL)",
+								"Frank WALLACE(USA)",
+								"O. PERALTA(MEX)",
+								"Marc OVERMARS(NED)",
+								"GROSSO(ITA)",
+								"O BRIEN(USA)",
+								"Norman WHITESIDE(NIR)",
+								"Enrique SAURA(ESP)",
+								"Norberto MENENDEZ(ARG)",
+								"Darren ANDERTON(ENG)",
+								"Marcel LANGILLER(FRA)",
+								"David BECKHAM(ENG)",
+								"Nils LIEDHOLM(SWE)",
+								"David EMBE(CMR)",
+								"Nikita SIMONYAN(URS)",
+								"Enrique GUAITA(ITA)",
+								"Dan EGGEN(NOR)",
+								"M. GONZALEZ(CHI)",
+								"DZEMAILI(SUI)",
+								"L. BLANC(FRA)",
+								"Franco CAUSIO(ITA)",
+								"YANG Seung Kook(PRK)",
+								"Knut KROON(SWE)",
+								"Mahjoub GHAZOUANI(MAR)",
+								"ALJABER (KSA)",
+								"DRAMAN(GHA)",
+								"ORIGI(BEL)",
+								"Erich OBERMAYER(AUT)",
+								"DUARTE O.(CRC)",
+								"Francois OMAM-BIYIK(CMR)",
+								"Manuel NEGRETE(MEX)",
+								"LAHM(GER)",
+								"DUFF(IRL)",
+								"M. MAHDAVIKIA(IRN)",
+								"OMAM BIYIK(CMR)",
+								"Manuel ROSAS(MEX)",
+								"Manuel SANCHIS(ESP)",
+								"Marc BERDOLL(FRA)",
+								"LACATUS(ROU)",
+								"OLISADEBE(POL)",
+								"OLIC(CRO)",
+								"OLI?(CRO)",
+								"Daniel VEYT(BEL)",
+								"CHUYOUNG(KOR)",
+								"BENDTNER(DEN)",
+								"Anatoli BANISHEVSKI(URS)",
+								"Jiri SOBOTKA(TCH)",
+								"Hector CHUMPITAZ(PER)",
+								"Andeas OGRIS(AUT)",
+								"Hassan ROWSHAN(IRN)",
+								"SRNA(CRO)",
+								"Joaquin PEIRO(ESP)",
+								"Thomas HELVEG(DEN)",
+								"Thomas SJOBERG(SWE)",
+								"Joe GAETJENS(USA)",
+								"BOUZAIENE(TUN)",
+								"Hassan NADER(MAR)",
+								"Ilija PETKOVIC(YUG)",
+								"BRADLEY(USA)",
+								"Amleto FRIGNANI(ITA)",
+								"SONCK(BEL)",
+								"BRAHIMI(ALG)",
+								"BRANCO(BRA)",
+								"BREEN(IRL)",
+								"Tihomir OGNJANOV(YUG)",
+								"Tijani BABANGIDA(NGA)",
+								"A. GUARDADO(MEX)",
+								"Todor KOLEV(BUL)",
+								"STEWART(USA)",
+								"Jiri FEUREISL(TCH)",
+								"BORIMIROV(BUL)",
+								"Jimmy MURRAY(SCO)",
+								"JAZIRI (TUN)",
+								"Jerzy GORGON(POL)",
+								"Safet SUSIC(YUG)",
+								"SYTCHEV(RUS)",
+								"Hector ZELAYA(HON)",
+								"SVENSSON(SWE)",
+								"Jesper OLSEN(DEN)",
+								"SUZUKI(JPN)",
+								"BODE(GER)",
+								"Tedj BENSAOULA(ALG)",
+								"Hector SCARONE(URU)",
+								"Jesus ZAMORA(ESP)",
+								"JANSEN(GER)",
+								"Jim BROWN(USA)",
+								"Terry MEDWIN(WAL)",
+								"Theo DE JONG(NED)",
+								"Hector FACUNDO(ARG)",
+								"STURRIDGE(ENG)",
+								"Jimmy GREAVES(ENG)",
+								"Jimmy MULLEN(ENG)",
+								"JANCKER(GER)",
+								"JAIDI (TUN)",
+								"BROOKS(USA)",
+								"Tom FINNEY(ENG)",
+								"Bernd CULLMANN(FRG)",
+								"Bernd HOELZENBEIN(FRG)",
+								"Toni SCHALL(AUT)",
+								"Ali KAABI(TUN)",
+								"Tore KELLER(SWE)",
+								"Vitali KHMELNITSKI(URS)",
+								"Ildo MANEIRO(URU)",
+								"Alfredo DEL AGUILA(MEX)",
+								"SENDEROS(SUI)",
+								"Berni KLODT(FRG)",
+								"Alfred PFAFF(FRG)",
+								"Hakan MILD(SWE)",
+								"SEFEROVIC(SUI)",
+								"HWANG Bo Kwan(KOR)",
+								"J. YUN NAM(PRK)",
+								"SCHNEIDER(GER)",
+								"Bixente LIZARAZU(FRA)",
+								"SAVIOLA(ARG)",
+								"Jorge ROBLEDO(CHI)",
+								"Blagoje MARJANOVIC(YUG)",
+								"HUNTELAAR(NED)",
+								"Bobby COLLINS(SCO)",
+								"Toni POLSTER(AUT)",
+								"Bernard LACOMBE(FRA)",
+								"SMELTZ(NZL)",
+								"Ali Thani JUMAA(UAE)",
+								"Hansi MUELLER(FRG)",
+								"SISSOKO(FRA)",
+								"John ALDRIDGE(IRL)",
+								"Tom FLORIE(USA)",
+								"John CHARLES(WAL)",
+								"SIM\ufffdO(POR)",
+								"John ERIKSEN(DEN)",
+								"Tom TURESSON(SWE)",
+								"BULENT KORKMAZ  (TUR)",
+								"John HAYNES(ENG)",
+								"Tomas BALCAZAR(MEX)",
+								"Bart McGHEE(USA)",
+								"John ROBERTSON(SCO)",
+								"Igor DOBROVOLSKYI(URS)",
+								"Abdelkarim KRIMAU(MAR)",
+								"SHEVCHENKO(UKR)",
+								"Tomas FERNANDEZ(CUB)",
+								"Allan NIELSEN(DEN)",
+								"Benito LORENZI(ITA)",
+								"Johnny EKSTROM(SWE)",
+								"Hans CIESCLARCZYK(FRG)",
+								"BLANCO(MEX)",
+								"BIRSA(SVN)",
+								"Heinz SCHNEITER(SUI)",
+								"W. PARKS(CRC)",
+								"AYALA(ARG)",
+								"Archie GEMMILL(SCO)",
+								"Houmane JARIR(MAR)",
+								"Stephane DEMOL(BEL)",
+								"Antonio RADA(COL)",
+								"Stephane CHAPUISAT(SUI)",
+								"BARNETTA(SUI)",
+								"Z\ufffd ROBERTO(BRA)",
+								"Horst HRUBESCH(FRG)",
+								"I. KAVIEDES(ECU)",
+								"Stefan MAJEWSKI(POL)",
+								"Horacio CASARIN(MEX)",
+								"IAQUINTA (ITA)",
+								"Stanislaus KOBIERSKI(GER)",
+								"Hernan MEDFORD(CRC)",
+								"TITOV(RUS)",
+								"Stan MORTENSEN(ENG)",
+								"Stan LIBUDA(FRG)",
+								"Antonio CABRINI(ITA)",
+								"JONES(USA)",
+								"Herman GAVIRIA(COL)",
+								"BALOTELLI(ITA)",
+								"TEO(COL)",
+								"Janos FARKAS(HUN)",
+								"Steve ARCHIBALD(SCO)",
+								"JUNGHWAN(KOR)",
+								"JUNINHO(BRA)",
+								"Atilio LOPEZ(PAR)",
+								"Sune ANDERSSON(SWE)",
+								"Sunday OLISEH(NGA)",
+								"JUANITO(ESP)",
+								"Stuart McCALL(SCO)",
+								"Jackie MUDIE(SCO)",
+								"Stjepan BOBEK(YUG)",
+								"TAMADA(JPN)",
+								"Hugo S\ufffdNCHEZ(MEX)",
+								"Asparukh NIKODIMOV(BUL)",
+								"JUAN(BRA)",
+								"Jaime BELMONTE(MEX)",
+								"Steve WOODDIN(NZL)",
+								"Steve SUMNER(NZL)",
+								"AYALA(PAR)",
+								"JOVANOVI?(SRB)",
+								"Vojislav MELIC(YUG)",
+								"BALBO(ARG)",
+								"Arne BRUSTAD(NOR)",
+								"Antonio ALZAMENDI(URU)",
+								"Janusz KUPCEWICZ(POL)",
+								"WANCHOPE(CRC)",
+								"Sergei BALTACHA(URS)",
+								"TSHABALALA(RSA)",
+								"ASAMOAH(GHA)",
+								"BERNAL(MEX)",
+								"Andrzej BUNCOL(POL)",
+								"Jean TIGANA(FRA)",
+								"Sasa ILIC(SCG)",
+								"Jean-Marc FERRERI(FRA)",
+								"BESCHASTNYKH(RUS)",
+								"Sandro MAZZOLA(ITA)",
+								"Sandor ZOMBORI(HUN)",
+								"BETO(POR)",
+								"Andres PRIETO(CHI)",
+								"INZAGHI (ITA)",
+								"Samson SIASIA(NGA)",
+								"Andrei ZYGMANTOVICH(URS)",
+								"Sammy BAIRD(SCO)",
+								"BIERHOFF(GER)",
+								"Andrei BAL(URS)",
+								"Tarcisio BURGNICH(ITA)",
+								"IRARAGORRI(ESP)",
+								"Jeno VINCZE(HUN)",
+								"v. HOOIJDONK(NED)",
+								"Sergei RODIONOV(URS)",
+								"Soren LERBY(DEN)",
+								"Henri ISEMBORGHS(BEL)",
+								"IBI\ufffdEVI?(BIH)",
+								"Javier AMBROIS(URU)",
+								"Sinisa MIHAJLOVIC(YUG)",
+								"Silviu BINDEA(ROU)",
+								"WALEM(BEL)",
+								"TOROSIDIS(GRE)",
+								"TORRES(ESP)",
+								"BECKHAM(ENG)",
+								"Sigi HELD(FRG)",
+								"Javier FRAGOSO(MEX)",
+								"Vlastimil KOPECKY(TCH)",
+								"Vladislav BOGICEVIC(YUG)",
+								"Shaun BARTLETT(RSA)",
+								"Serguei ALEINIKOV(URS)",
+								"Javier ZANETTI(ARG)",
+								"Henrik LARSSON(SWE)",
+								"Angelo DOMENGHINI(ITA)",
+								"TOURE YAYA(CIV)",
+								"Angel Ruben CABRERA(URU)",
+								"Sergio AHUMADA(CHI)",
+								"IKPEBA(NGA)",
+								"SANTA CRUZ(PAR)",
+								"T.A. FLO(NOR)",
+								"Iuliu BARATKY(ROU)",
+								"CAMPBELL(ENG)",
+								"Richard HERRMANN(FRG)",
+								"C. KADER-TOURE(TOG)",
+								"Alejandro SCOPELLI(ARG)",
+								"Ruben AYALA(ARG)",
+								"CAMPBELL J.(CRC)",
+								"Robert PROSINECKI(YUG)",
+								"Josef BICAN(AUT)",
+								"Ahmed RADHI(IRQ)",
+								"Ivan HASEK(TCH)",
+								"Josef GAUCHEL(GER)",
+								"Alan MULLERY(ENG)",
+								"VARELA(POR)",
+								"Josef KADRABA(TCH)",
+								"Ronald GONZALEZ(CRC)",
+								"Rene VAN DE KERKHOF(NED)",
+								"Rene GIRARD(FRA)",
+								"Ruben DIAZ(PER)",
+								"Josef KOSTALEK(TCH)",
+								"Jose VELASQUEZ(PER)",
+								"Ruud KROL(NED)",
+								"Ruud GULLIT(NED)",
+								"Ruediger ABRAMCZIK(FRG)",
+								"J W SEO(KOR)",
+								"Rudolf NOACK(GER)",
+								"Reinhold HINTERMAIER(AUT)",
+								"Aleksandar TIRNANIC(YUG)",
+								"Renato ZACCARELLI(ITA)",
+								"Rene BADER(SUI)",
+								"A. NAELSON(MEX)",
+								"Jose SANFILIPPO(ARG)",
+								"Isidro LANGARA(ESP)",
+								"Jose SIERRA(CHI)",
+								"Ruben MARCOS(CHI)",
+								"Robert JARNI(CRO)",
+								"WINTER(NED)",
+								"Josef MASOPUST(TCH)",
+								"VR\ufffdAJEVI?(BIH)",
+								"Roberto CHALLE(PER)",
+								"Jozsef BOZSIK(HUN)",
+								"Alan SHEARER(ENG)",
+								"CAMBIASSO(ARG)",
+								"CACAU(GER)",
+								"Alberto GORRIZ(ESP)",
+								"HUH Jungmoo(KOR)",
+								"Juan MUJICA(URU)",
+								"J S PARK(KOR)",
+								"Juan LETELIER(CHI)",
+								"Alberto GALATEO(ARG)",
+								"Roberto GAYON(MEX)",
+								"Jozsef BENCSIS(HUN)",
+								"Juan Ignacio BASAGUREN(MEX)",
+								"VERTONGHEN(BEL)",
+								"Ricardo PAVONI(URU)",
+								"VERA(PAR)",
+								"Alberto TARANTINI(ARG)",
+								"Ivan GUDELJ(YUG)",
+								"Roger FLORES(CRC)",
+								"VARGAS(CHI)",
+								"CARLOS ALBERTO(BRA)",
+								"ANTONIO SIMOES(POR)",
+								"Rolf WUETHRICH(SUI)",
+								"Josef STIBRANYI(TCH)",
+								"Josef ZEMAN(TCH)",
+								"Aldo SERENA(ITA)",
+								"Aldo DONELLI(USA)",
+								"Rene-Pierre QUENTIN(SUI)",
+								"Juan Manuel ASENSI(ESP)",
+								"Roger LJUNG(SWE)",
+								"Josip KATALINSKI(YUG)",
+								"CARLOS MANUEL(POR)",
+								"HEINZE(ARG)",
+								"Jozsef VARGA(HUN)",
+								"HESKEY(ENG)",
+								"J COLE(ENG)",
+								"S C YOO(KOR)",
+								"Abdulaziz AL BALUSHI(KUW)",
+								"HALLICHE(ALG)",
+								"Branko OBLAK(YUG)",
+								"HOLLAND(IRL)",
+								"Raul SERVIN(MEX)",
+								"Adalbert DESU(ROU)",
+								"Branko ZEBEC(YUG)",
+								"Ray HOUGHTON(IRL)",
+								"Jose LAMADRID(MEX)",
+								"Ivan YAREMCHUK(URS)",
+								"Zdravko RAJKOV(YUG)",
+								"Uwe BEIN(FRG)",
+								"Uwe REINDERS(FRG)",
+								"J. HERNANDEZ(MEX)",
+								"Victor ESPARRAGO(URU)",
+								"Juan CARRENO(MEX)",
+								"Alex CZERNIATYNSKI(BEL)",
+								"Juergen GRABOWSKI(FRG)",
+								"Robert EARLE(JAM)",
+								"SALPINGIDIS(GRE)",
+								"Alain SUTTER(SUI)",
+								"Vasili RATS(URS)",
+								"Boudewijn ZENDEN(NED)",
+								"Rik COPPENS(BEL)",
+								"Alain COURIOL(FRA)",
+								"Alexandru NEAGU(ROU)",
+								"Victor RANGEL(MEX)",
+								"Juan CAYASSO(CRC)",
+								"Juergen SPARWASSER(GDR)",
+								"Raoul LAMBERT(BEL)",
+								"SAMARIS(GRE)",
+								"UPSON(ENG)",
+								"Jose BROWN(ARG)",
+								"URE\ufffdA M.(CRC)",
+								"Ivica VASTIC(AUT)",
+								"Jose Luis GONZALEZ(MEX)",
+								"CARDOZO(PAR)",
+								"Albert BRUELLS(FRG)",
+								"VALERON(ESP)",
+								"Bryan ROY(NED)",
+								"Bruno CONTI(ITA)",
+								"J C KOO(KOR)",
+								"VALDOMIRO(BRA)",
+								"Iraj DANAYFAR(IRN)",
+								"VALDIVIA(CHI)",
+								"Aleksandr IVANOV(URS)",
+								"VALBUENA(FRA)",
+								"V.D.HEYDEN(BEL)",
+								"Isidoro DIAZ(MEX)",
+								"C G SONG(KOR)",
+								"CAVANI(URU)",
+								"Jose Maria FUSTE(ESP)",
+								"Aleksandre CHIVADZE(URS)",
+								"Bruce MURRAY(USA)",
+								"Bruno PEZZEY(AUT)",
+								"Adrian ILIE(ROU)",
+								"Vilmos KOHUT(HUN)",
+								"Juan Antonio SENOR(ESP)",
+								"V. NISTELROOY(NED)",
+								"Aleksei MAMYKIN(URS)",
+								"S. OWAIRAN(KSA)",
+								"Bror MELLBERG(SWE)",
+								"S.BAKHTIARIZADEH(IRN)",
+								"Jose MAGRINA(CUB)",
+								"Vaclav MASEK(TCH)",
+								"V. BRONCKHORST(NED)",
+								"CAMPOS(PAR)",
+								"Brian McBRIDE(USA)",
+								"Bruno MORA(ITA)"
+							]
+						}
+					],
+					"yAxis": [
+						{
+							"show": true,
+							"scale": false,
+							"nameLocation": "end",
+							"nameGap": 15,
+							"gridIndex": 0,
+							"inverse": false,
+							"offset": 0,
+							"splitNumber": 5,
+							"minInterval": 0,
+							"splitLine": {
+								"show": false,
+								"lineStyle": {
+									"show": true,
+									"width": 1,
+									"opacity": 1,
+									"curveness": 0,
+									"type": "solid"
+								}
+							}
+						}
+					],
+					"title": [
+						{
+							"text": "\u7403\u5458\u8fdb\u7403\u6570",
+							"padding": 5,
+							"itemGap": 10
+						}
+					],
+					"dataZoom": {
+						"show": true,
+						"type": "slider",
+						"realtime": true,
+						"start": 0,
+						"end": 3,
+						"orient": "horizontal",
+						"zoomLock": false,
+						"filterMode": "filter"
+					}
+				};
+						chart_74bc59a768704608892e67f28eb0a1f8.setOption(option_74bc59a768704608892e67f28eb0a1f8);
+					</script>
+				</div>
+
+				<div class="row">
+                    <div class="col-md-8 mx-auto" style="padding-left: 140px;">
+                        <button class="btn btn-primary btn-warning">Comments</button>
+                        <button class="btn btn-primary btn-round">Share</button>
+                        <button class="btn btn-primary btn-round btn-info">
+                            <i class="material-icons">favorite</i> Like
+                        </button>
+                        <button class="btn btn-primary btn-fab btn-round btn-info">
+                            <i class="material-icons">favorite</i>
+                        </button>
+                        <button class="btn btn-primary btn-link magic4" style="color: #00BCD4">SHOW</button>
+                    </div>
+                </div>
+				<!--隐藏文本-->
+				<div class="show4" style="display: none;">
+					<h3><small>从这张图可以看出虽然在世界杯有进球记录的球员有很多，但是上下幅度不大，进球数等于或高于十个的仅有9人，绝大多数（约80%）球员仅有1～3球的记录。其中累计进球最多的德国的克罗斯（17球）<br><font style="font-style: italic">数据来源：Kaggle</font></small></h3>
+				</div>
+
+				<div class="title">
+                    <h4>下面的词云图摘取了历年来综合表现表现突出的球员</h4>
+                </div>
+				<div id="57bf9f261528447da091df772281efc1" class="chart-container" style="width:900px; height:500px; margin-left: 70px;">
+					<script>
+						var chart_57bf9f261528447da091df772281efc1 = echarts.init(
+							document.getElementById('57bf9f261528447da091df772281efc1'), 'white', {renderer: 'canvas'});
+						var option_57bf9f261528447da091df772281efc1 = {
+					"animation": true,
+					"animationThreshold": 2000,
+					"animationDuration": 1000,
+					"animationEasing": "cubicOut",
+					"animationDelay": 0,
+					"animationDurationUpdate": 300,
+					"animationEasingUpdate": "cubicOut",
+					"animationDelayUpdate": 0,
+					"color": [
+						"#c23531",
+						"#2f4554",
+						"#61a0a8",
+						"#d48265",
+						"#749f83",
+						"#ca8622",
+						"#bda29a",
+						"#6e7074",
+						"#546570",
+						"#c4ccd3",
+						"#f05b72",
+						"#ef5b9c",
+						"#f47920",
+						"#905a3d",
+						"#fab27b",
+						"#2a5caa",
+						"#444693",
+						"#726930",
+						"#b2d235",
+						"#6d8346",
+						"#ac6767",
+						"#1d953f",
+						"#6950a1",
+						"#918597"
+					],
+					"series": [
+						{
+							"type": "wordCloud",
+							"name": "\u70ed\u70b9\u5206\u6790",
+							"shape": "circle",
+							"rotationRange": [
+								-90,
+								90
+							],
+							"rotationStep": 45,
+							"girdSize": 20,
+							"sizeRange": [
+								10,
+								36
+							],
+							"data": [
+								{
+									"name": "\u7f57\u9a6c\u91cc\u5965",
+									"value": 23,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(23,146,14)"
+										}
+									}
+								},
+								{
+									"name": "\u5927\u52b3\u5fb7\u9c81\u666e",
+									"value": 67,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(47,25,28)"
+										}
+									}
+								},
+								{
+									"name": "\u4ea8\u6258",
+									"value": 38,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(2,98,140)"
+										}
+									}
+								},
+								{
+									"name": "\u5f17\u6717\u897f\u65af\u79d1\u5229",
+									"value": 39,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(154,43,139)"
+										}
+									}
+								},
+								{
+									"name": "\u820d\u752b\u7434\u79d1",
+									"value": 102,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(90,73,102)"
+										}
+									}
+								},
+								{
+									"name": "\u7ef4\u963f",
+									"value": 137,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(72,24,150)"
+										}
+									}
+								},
+								{
+									"name": "\u5df4\u8482\u65af\u56fe\u5854",
+									"value": 90,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(160,37,101)"
+										}
+									}
+								},
+								{
+									"name": "\u8fbe\u683c\u4ec0\u5229",
+									"value": 70,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(143,79,18)"
+										}
+									}
+								},
+								{
+									"name": "\u535a\u6d85\u514b",
+									"value": 80,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(4,29,88)"
+										}
+									}
+								},
+								{
+									"name": "\u5e03\u7279\u62c9\u683c\u8bfa",
+									"value": 33,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(1,128,54)"
+										}
+									}
+								},
+								{
+									"name": "\u5361\u5361",
+									"value": 28,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(125,118,12)"
+										}
+									}
+								},
+								{
+									"name": "\u80af\u4f69\u65af",
+									"value": 57,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(78,114,23)"
+										}
+									}
+								},
+								{
+									"name": "\u4fdd\u7f57",
+									"value": 113,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(8,28,134)"
+										}
+									}
+								},
+								{
+									"name": "\u4ea8\u5229",
+									"value": 95,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(12,11,28)"
+										}
+									}
+								},
+								{
+									"name": "\u7a46\u52d2",
+									"value": 67,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(59,158,159)"
+										}
+									}
+								},
+								{
+									"name": "\u535a\u683c\u574e\u666e",
+									"value": 86,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(107,159,32)"
+										}
+									}
+								},
+								{
+									"name": "\u6885\u897f",
+									"value": 56,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(73,42,34)"
+										}
+									}
+								},
+								{
+									"name": "\u9f50\u8fbe\u5185",
+									"value": 61,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(42,1,129)"
+										}
+									}
+								},
+								{
+									"name": "\u9a6c\u62c9\u591a\u7eb3",
+									"value": 44,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(92,92,78)"
+										}
+									}
+								},
+								{
+									"name": "\u8d1d\u5229",
+									"value": 20,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(24,34,12)"
+										}
+									}
+								},
+								{
+									"name": "\u8d1d\u80af\u9c8d\u5c14",
+									"value": 112,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(89,19,104)"
+										}
+									}
+								},
+								{
+									"name": "\u6d4e\u79d1",
+									"value": 122,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(90,17,150)"
+										}
+									}
+								},
+								{
+									"name": "\u9a6c\u5c14\u8482\u5c3c",
+									"value": 126,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(140,122,72)"
+										}
+									}
+								},
+								{
+									"name": "\u9a6c\u7279\u4e4c\u65af",
+									"value": 67,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(146,53,141)"
+										}
+									}
+								},
+								{
+									"name": "\u514b\u6797\u65af\u66fc",
+									"value": 105,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(9,46,75)"
+										}
+									}
+								},
+								{
+									"name": "\u5df4\u4e54",
+									"value": 76,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(75,18,141)"
+										}
+									}
+								},
+								{
+									"name": "\u9a6c\u4f50\u62c9",
+									"value": 91,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(132,51,1)"
+										}
+									}
+								},
+								{
+									"name": "\u54c8\u6885\u65af\u00b7\u7f57\u5fb7\u91cc\u683c\u65af",
+									"value": 80,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(101,44,79)"
+										}
+									}
+								},
+								{
+									"name": "\u7f57\u9a6c\u91cc\u5965",
+									"value": 93,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(103,18,94)"
+										}
+									}
+								},
+								{
+									"name": "\u5927\u52b3\u5fb7\u9c81\u666e",
+									"value": 56,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(69,130,69)"
+										}
+									}
+								},
+								{
+									"name": "\u4ea8\u6258",
+									"value": 101,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(147,107,65)"
+										}
+									}
+								},
+								{
+									"name": "\u5f17\u6717\u897f\u65af\u79d1\u5229",
+									"value": 30,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(145,136,72)"
+										}
+									}
+								},
+								{
+									"name": "\u820d\u752b\u7434\u79d1",
+									"value": 61,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(66,106,27)"
+										}
+									}
+								},
+								{
+									"name": "\u7ef4\u963f",
+									"value": 113,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(153,95,112)"
+										}
+									}
+								},
+								{
+									"name": "\u5df4\u8482\u65af\u56fe\u5854",
+									"value": 122,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(121,82,124)"
+										}
+									}
+								},
+								{
+									"name": "\u8fbe\u683c\u4ec0\u5229",
+									"value": 89,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(86,93,98)"
+										}
+									}
+								},
+								{
+									"name": "\u535a\u6d85\u514b",
+									"value": 74,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(111,17,118)"
+										}
+									}
+								},
+								{
+									"name": "\u5e03\u7279\u62c9\u683c\u8bfa",
+									"value": 85,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(89,2,83)"
+										}
+									}
+								},
+								{
+									"name": "\u5361\u5361",
+									"value": 146,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(50,138,89)"
+										}
+									}
+								},
+								{
+									"name": "\u80af\u4f69\u65af",
+									"value": 107,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(72,31,29)"
+										}
+									}
+								},
+								{
+									"name": "\u4fdd\u7f57",
+									"value": 55,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(19,26,12)"
+										}
+									}
+								},
+								{
+									"name": "\u4ea8\u5229",
+									"value": 62,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(107,61,98)"
+										}
+									}
+								},
+								{
+									"name": "\u7a46\u52d2",
+									"value": 28,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(34,69,85)"
+										}
+									}
+								},
+								{
+									"name": "\u535a\u683c\u574e\u666e",
+									"value": 85,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(82,22,82)"
+										}
+									}
+								},
+								{
+									"name": "\u6885\u897f",
+									"value": 39,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(81,52,74)"
+										}
+									}
+								},
+								{
+									"name": "\u9f50\u8fbe\u5185",
+									"value": 60,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(88,127,50)"
+										}
+									}
+								},
+								{
+									"name": "\u9a6c\u62c9\u591a\u7eb3",
+									"value": 34,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(2,52,110)"
+										}
+									}
+								},
+								{
+									"name": "\u8d1d\u5229",
+									"value": 23,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(4,23,44)"
+										}
+									}
+								},
+								{
+									"name": "\u8d1d\u80af\u9c8d\u5c14",
+									"value": 107,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(69,58,40)"
+										}
+									}
+								},
+								{
+									"name": "\u6d4e\u79d1",
+									"value": 31,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(87,14,84)"
+										}
+									}
+								},
+								{
+									"name": "\u9a6c\u5c14\u8482\u5c3c",
+									"value": 43,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(94,75,104)"
+										}
+									}
+								},
+								{
+									"name": "\u9a6c\u7279\u4e4c\u65af",
+									"value": 133,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(116,38,139)"
+										}
+									}
+								},
+								{
+									"name": "\u514b\u6797\u65af\u66fc",
+									"value": 64,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(80,134,31)"
+										}
+									}
+								},
+								{
+									"name": "\u5df4\u4e54",
+									"value": 70,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(80,16,109)"
+										}
+									}
+								},
+								{
+									"name": "\u9a6c\u4f50\u62c9",
+									"value": 74,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(126,146,123)"
+										}
+									}
+								},
+								{
+									"name": "\u54c8\u6885\u65af\u00b7\u7f57\u5fb7\u91cc\u683c\u65af",
+									"value": 138,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(110,159,128)"
+										}
+									}
+								}
+							],
+							"drawOutOfBound": false,
+							"textStyle": {
+								"emphasis": {}
+							}
+						}
+					],
+					"legend": [
+						{
+							"data": [],
+							"selected": {},
+							"show": true,
+							"padding": 5,
+							"itemGap": 10,
+							"itemWidth": 25,
+							"itemHeight": 14
+						}
+					],
+					"tooltip": {
+						"show": false,
+						"trigger": "item",
+						"triggerOn": "mousemove|click",
+						"axisPointer": {
+							"type": "line"
+						},
+						"showContent": true,
+						"alwaysShowContent": false,
+						"showDelay": 0,
+						"hideDelay": 100,
+						"textStyle": {
+							"fontSize": 14
+						},
+						"borderWidth": 0,
+						"padding": 5
+					},
+					"title": [
+						{
+							"padding": 5,
+							"itemGap": 10
+						}
+					]
+				};
+						chart_57bf9f261528447da091df772281efc1.setOption(option_57bf9f261528447da091df772281efc1);
+					</script>
+				</div>
+				<div class="row">
+					<br>
+				</div>
+
+				<!--波形图-->
+
+				<div class="title">
+                    <h3>历届世界杯的常胜将军 <br>
+                        <small>即使是在最高水平的绿茵场上，仍有数支豪强纵横于岁月间，不改强悍本色。下表展现了1930-2018年间世界杯比赛胜率的翘楚们</small><br>
+                    </h3>
+                </div>
+
+				<div class="title">
+					<h3 style="margin-left: 200px; margin-bottom: -120px;">
+						&emsp;&emsp;&emsp;&emsp;&emsp;巴西&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;德国
+					</h3>
+				</div>
+				<div id="0b94b51207c34d3db09c6cd65422d649" class="chart-container" style="width:900px; height:500px; margin-left: 120px;">
+					<script>
+						var chart_0b94b51207c34d3db09c6cd65422d649 = echarts.init(
+							document.getElementById('0b94b51207c34d3db09c6cd65422d649'), 'white', {renderer: 'canvas'});
+						var option_0b94b51207c34d3db09c6cd65422d649 = {
+					"animation": true,
+					"animationThreshold": 2000,
+					"animationDuration": 1000,
+					"animationEasing": "cubicOut",
+					"animationDelay": 0,
+					"animationDurationUpdate": 300,
+					"animationEasingUpdate": "cubicOut",
+					"animationDelayUpdate": 0,
+					"color": [
+						"#c23531",
+						"#2f4554",
+						"#61a0a8",
+						"#d48265",
+						"#749f83",
+						"#ca8622",
+						"#bda29a",
+						"#6e7074",
+						"#546570",
+						"#c4ccd3",
+						"#f05b72",
+						"#ef5b9c",
+						"#f47920",
+						"#905a3d",
+						"#fab27b",
+						"#2a5caa",
+						"#444693",
+						"#726930",
+						"#b2d235",
+						"#6d8346",
+						"#ac6767",
+						"#1d953f",
+						"#6950a1",
+						"#918597"
+					],
+					"series": [
+						{
+							"type": "liquidFill",
+							"name": "\u5fb7\u56fd",
+							"data": [
+								0.581633
+							],
+							"waveAnimation": true,
+							"animationDuration": 2000,
+							"animationDurationUpdate": 1000,
+							"color": [
+								"#294D99",
+								"#156ACF",
+								"#1598ED",
+								"#45BDFF"
+							],
+							"shape": "circle",
+							"backgroundStyle": {},
+							"outline": {
+								"show": true,
+								"borderDistance": 8
+							},
+							"label": {
+								"show": true,
+								"position": "inside",
+								"margin": 8,
+								"fontSize": 50
+							},
+							"center": [
+								"60%",
+								"50%"
+							],
+							"xAxisIndex": 0,
+							"yAxisIndex": 0
+						},
+						{
+							"type": "liquidFill",
+							"name": "\u5df4\u897f",
+							"data": [
+								0.695652,
+								"64\u80dc"
+							],
+							"waveAnimation": true,
+							"animationDuration": 2000,
+							"animationDurationUpdate": 1000,
+							"color": [
+								"#294D99",
+								"#156ACF",
+								"#1598ED",
+								"#45BDFF"
+							],
+							"shape": "circle",
+							"backgroundStyle": {},
+							"outline": {
+								"show": true,
+								"borderDistance": 8
+							},
+							"label": {
+								"show": true,
+								"position": "inside",
+								"margin": 8,
+								"fontSize": 50,
+								"formatter": function (param) {                    return (Math.floor(param.value * 10000) / 100) + '%';                }
+							},
+							"center": [
+								"25%",
+								"50%"
+							],
+							"xAxisIndex": 1,
+							"yAxisIndex": 1
+						}
+					],
+					"legend": [
+						{
+							"data": [],
+							"selected": {}
+						},
+						{
+							"data": [],
+							"selected": {}
+						}
+					],
+					"tooltip": {
+						"show": true,
+						"trigger": "item",
+						"triggerOn": "mousemove|click",
+						"axisPointer": {
+							"type": "line"
+						},
+						"showContent": true,
+						"alwaysShowContent": false,
+						"showDelay": 0,
+						"hideDelay": 100,
+						"textStyle": {
+							"fontSize": 14
+						},
+						"borderWidth": 0,
+						"padding": 5
+					},
+					"grid": [
+						{
+							"show": false,
+							"zlevel": 0,
+							"z": 2,
+							"containLabel": false,
+							"backgroundColor": "transparent",
+							"borderColor": "#ccc",
+							"borderWidth": 1
+						},
+						{
+							"show": false,
+							"zlevel": 0,
+							"z": 2,
+							"containLabel": false,
+							"backgroundColor": "transparent",
+							"borderColor": "#ccc",
+							"borderWidth": 1
+						}
+					],
+					"title": [
+						{
+							"padding": 5,
+							"itemGap": 10
+						},
+						{
+							"padding": 5,
+							"itemGap": 10
+						}
+					]
+				};
+						chart_0b94b51207c34d3db09c6cd65422d649.setOption(option_0b94b51207c34d3db09c6cd65422d649);
+					</script>
+				</div>
+				<div class="title">
+					<h3 style="margin-left: 200px; margin-bottom: -120px; margin-top: -120px;">
+						&emsp;&emsp;&emsp;&emsp;&ensp;意大利&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;阿根廷
+					</h3>
+				</div>
+				<div id="8da0f0749ca24c9eb76ede4b1b8d8cf6" class="chart-container" style="width:900px; height:500px; margin-left: 120px; margin-bottom: -10px;">
+					<script>
+						var chart_8da0f0749ca24c9eb76ede4b1b8d8cf6 = echarts.init(
+							document.getElementById('8da0f0749ca24c9eb76ede4b1b8d8cf6'), 'white', {renderer: 'canvas'});
+						var option_8da0f0749ca24c9eb76ede4b1b8d8cf6 = {
+					"animation": true,
+					"animationThreshold": 2000,
+					"animationDuration": 1000,
+					"animationEasing": "cubicOut",
+					"animationDelay": 0,
+					"animationDurationUpdate": 300,
+					"animationEasingUpdate": "cubicOut",
+					"animationDelayUpdate": 0,
+					"color": [
+						"#c23531",
+						"#2f4554",
+						"#61a0a8",
+						"#d48265",
+						"#749f83",
+						"#ca8622",
+						"#bda29a",
+						"#6e7074",
+						"#546570",
+						"#c4ccd3",
+						"#f05b72",
+						"#ef5b9c",
+						"#f47920",
+						"#905a3d",
+						"#fab27b",
+						"#2a5caa",
+						"#444693",
+						"#726930",
+						"#b2d235",
+						"#6d8346",
+						"#ac6767",
+						"#1d953f",
+						"#6950a1",
+						"#918597"
+					],
+					"series": [
+						{
+							"type": "liquidFill",
+							"name": "\u963f\u6839\u5ef7",
+							"data": [
+								0.507692
+							],
+							"waveAnimation": true,
+							"animationDuration": 2000,
+							"animationDurationUpdate": 1000,
+							"color": [
+								"#294D99",
+								"#156ACF",
+								"#1598ED",
+								"#45BDFF"
+							],
+							"shape": "circle",
+							"backgroundStyle": {},
+							"outline": {
+								"show": true,
+								"borderDistance": 8
+							},
+							"label": {
+								"show": true,
+								"position": "inside",
+								"margin": 8,
+								"fontSize": 50
+							},
+							"center": [
+								"60%",
+								"50%"
+							],
+							"xAxisIndex": 0,
+							"yAxisIndex": 0
+						},
+						{
+							"type": "liquidFill",
+							"name": "\u610f\u5927\u5229",
+							"data": [
+								0.584416,
+								"64\u80dc"
+							],
+							"waveAnimation": true,
+							"animationDuration": 2000,
+							"animationDurationUpdate": 1000,
+							"color": [
+								"#294D99",
+								"#156ACF",
+								"#1598ED",
+								"#45BDFF"
+							],
+							"shape": "circle",
+							"backgroundStyle": {},
+							"outline": {
+								"show": true,
+								"borderDistance": 8
+							},
+							"label": {
+								"show": true,
+								"position": "inside",
+								"margin": 8,
+								"fontSize": 50,
+								"formatter": function (param) {                    return (Math.floor(param.value * 10000) / 100) + '%';                }
+							},
+							"center": [
+								"25%",
+								"50%"
+							],
+							"xAxisIndex": 1,
+							"yAxisIndex": 1
+						}
+					],
+					"legend": [
+						{
+							"data": [],
+							"selected": {}
+						},
+						{
+							"data": [],
+							"selected": {}
+						}
+					],
+					"tooltip": {
+						"show": true,
+						"trigger": "item",
+						"triggerOn": "mousemove|click",
+						"axisPointer": {
+							"type": "line"
+						},
+						"showContent": true,
+						"alwaysShowContent": false,
+						"showDelay": 0,
+						"hideDelay": 100,
+						"textStyle": {
+							"fontSize": 14
+						},
+						"borderWidth": 0,
+						"padding": 5
+					},
+					"grid": [
+						{
+							"show": false,
+							"zlevel": 0,
+							"z": 2,
+							"containLabel": false,
+							"backgroundColor": "transparent",
+							"borderColor": "#ccc",
+							"borderWidth": 1
+						},
+						{
+							"show": false,
+							"zlevel": 0,
+							"z": 2,
+							"containLabel": false,
+							"backgroundColor": "transparent",
+							"borderColor": "#ccc",
+							"borderWidth": 1
+						}
+					],
+					"title": [
+						{
+							"padding": 5,
+							"itemGap": 10
+						},
+						{
+							"padding": 5,
+							"itemGap": 10
+						}
+					]
+				};
+						chart_8da0f0749ca24c9eb76ede4b1b8d8cf6.setOption(option_8da0f0749ca24c9eb76ede4b1b8d8cf6);
+					</script>
+				</div>
+
+
+				<div class="row">
+                    <div class="col-md-8 mx-auto" style="padding-left: 140px;">
+                        <button class="btn btn-primary btn-warning">Comments</button>
+                        <button class="btn btn-primary btn-round">Share</button>
+                        <button class="btn btn-primary btn-round btn-info">
+                            <i class="material-icons">favorite</i> Like
+                        </button>
+                        <button class="btn btn-primary btn-fab btn-round btn-info">
+                            <i class="material-icons">favorite</i>
+                        </button>
+                        <button class="btn btn-primary btn-link magic5" style="color: #00BCD4">SHOW</button>
+                    </div>
+                </div>
+				<!--隐藏文本-->
+				<div class="show5" style="display: none;">
+					<h3><small>隐藏的内容——————<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。</small></h3>
+				</div>
+				
+				<div class="row">
+					<br>
+				</div>
+				
+				<!--雷达图-->
+
+				<div class="title">
+                    <h3>球队雷达图 <br>
+                        <small>下面是通过技术分析，从六个方面以雷达图的形式展现一些球队的多方面实力</small>
+                    </h3>
+                </div>
+				<div class="title">
+					<br>
+				</div>
+				<div id="e556338aae6c4c2d96e814be224a92b2" class="chart-container" style="width:880px; height:495px; margin-left: 100px;margin-top: -30px; margin-bottom: 30px;">
+					<script>
+						var chart_e556338aae6c4c2d96e814be224a92b2 = echarts.init(
+							document.getElementById('e556338aae6c4c2d96e814be224a92b2'), 'white', {renderer: 'canvas'});
+						var option_e556338aae6c4c2d96e814be224a92b2 = {
+					"backgroundColor": "#CCCCCC",
+					"animation": true,
+					"animationThreshold": 2000,
+					"animationDuration": 1000,
+					"animationEasing": "cubicOut",
+					"animationDelay": 0,
+					"animationDurationUpdate": 300,
+					"animationEasingUpdate": "cubicOut",
+					"animationDelayUpdate": 0,
+					"color": [
+						"#c23531",
+						"#2f4554",
+						"#61a0a8",
+						"#d48265",
+						"#749f83",
+						"#ca8622",
+						"#bda29a",
+						"#6e7074",
+						"#546570",
+						"#c4ccd3",
+						"#f05b72",
+						"#ef5b9c",
+						"#f47920",
+						"#905a3d",
+						"#fab27b",
+						"#2a5caa",
+						"#444693",
+						"#726930",
+						"#b2d235",
+						"#6d8346",
+						"#ac6767",
+						"#1d953f",
+						"#6950a1",
+						"#918597"
+					],
+					"series": [
+						{
+							"type": "radar",
+							"name": "\u66fc\u5f7b\u65af\u7279\u8054\uff08\u7b2c1\u540d\uff09",
+							"data": [
+								[
+									2.09,
+									0.10612597066436583,
+									0.40758620689655173,
+									14.73,
+									12.32,
+									55.05
+								]
+							],
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"itemStyle": {
+								"normal": {}
+							},
+							"lineStyle": {
+								"show": true,
+								"width": 1,
+								"opacity": 1,
+								"curveness": 0,
+								"type": "solid",
+								"color": "#CD0000"
+							},
+							"areaStyle": {
+								"opacity": 0
+							},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						},
+						{
+							"type": "radar",
+							"name": "\u5229\u7269\u6d66\uff08\u7b2c2\u540d\uff09",
+							"data": [
+								[
+									2.05,
+									0.14339622641509434,
+									0.3685534591194969,
+									13.67,
+									10.19,
+									64.29
+								]
+							],
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"itemStyle": {
+								"normal": {}
+							},
+							"lineStyle": {
+								"show": true,
+								"width": 1,
+								"opacity": 1,
+								"curveness": 0,
+								"type": "solid",
+								"color": "#2828FF"
+							},
+							"areaStyle": {
+								"opacity": 0
+							},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						},
+						{
+							"type": "radar",
+							"name": "\u5357\u5b89\u666e\u6566\uff08\u7b2c11\u540d\uff09",
+							"data": [
+								[
+									1.29,
+									0.14727272727272728,
+									0.40561471442400776,
+									14.05,
+									11.71,
+									53.33
+								]
+							],
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"itemStyle": {
+								"normal": {}
+							},
+							"lineStyle": {
+								"show": true,
+								"width": 1,
+								"opacity": 1,
+								"curveness": 0,
+								"type": "solid",
+								"color": "#F9F900"
+							},
+							"areaStyle": {
+								"opacity": 0
+							},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						},
+						{
+							"type": "radar",
+							"name": "\u4f2f\u6069\u5229\uff08\u7b2c19\u540d\uff09",
+							"data": [
+								[
+									0.65,
+									0.08637873754152824,
+									0.32758620689655177,
+									22.55,
+									11.3,
+									39.95
+								]
+							],
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"itemStyle": {
+								"normal": {}
+							},
+							"lineStyle": {
+								"show": true,
+								"width": 1,
+								"opacity": 1,
+								"curveness": 0,
+								"type": "solid",
+								"color": "#A8FF24"
+							},
+							"areaStyle": {
+								"opacity": 0
+							},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						}
+					],
+					"legend": [
+						{
+							"data": [
+								"\u66fc\u5f7b\u65af\u7279\u8054\uff08\u7b2c1\u540d\uff09",
+								"\u5229\u7269\u6d66\uff08\u7b2c2\u540d\uff09",
+								"\u5357\u5b89\u666e\u6566\uff08\u7b2c11\u540d\uff09",
+								"\u4f2f\u6069\u5229\uff08\u7b2c19\u540d\uff09"
+							],
+							"selected": {
+								"\u66fc\u5f7b\u65af\u7279\u8054\uff08\u7b2c1\u540d\uff09": true,
+								"\u5229\u7269\u6d66\uff08\u7b2c2\u540d\uff09": true,
+								"\u5357\u5b89\u666e\u6566\uff08\u7b2c11\u540d\uff09": true,
+								"\u4f2f\u6069\u5229\uff08\u7b2c19\u540d\uff09": true
+							},
+							"show": true,
+							"padding": 5,
+							"itemGap": 10,
+							"itemWidth": 25,
+							"itemHeight": 14
+						}
+					],
+					"tooltip": {
+						"show": true,
+						"trigger": "item",
+						"triggerOn": "mousemove|click",
+						"axisPointer": {
+							"type": "line"
+						},
+						"showContent": true,
+						"alwaysShowContent": false,
+						"showDelay": 0,
+						"hideDelay": 100,
+						"textStyle": {
+							"fontSize": 14
+						},
+						"borderWidth": 0,
+						"padding": 5
+					},
+					"radar": {
+						"indicator": [
+							{
+								"name": "\u8fdb\u653b",
+								"max": 2.06475
+							},
+							{
+								"name": "\u9632\u5b88",
+								"max": 0.13741227885867963
+							},
+							{
+								"name": "\u7cbe\u51c6",
+								"max": 0.43302337270671026
+							},
+							{
+								"name": "\u5236\u7a7a",
+								"max": 19.8528
+							},
+							{
+								"name": "\u62fc\u62a2",
+								"max": 13.2954
+							},
+							{
+								"name": "\u63a7\u5236",
+								"max": 60.1272
+							}
+						],
+						"name": {
+							"textStyle": {
+								"color": "#fff"
+							}
+						},
+						"splitLine": {
+							"show": true,
+							"lineStyle": {
+								"show": true,
+								"width": 1,
+								"opacity": 1,
+								"curveness": 0,
+								"type": "solid"
+							}
+						},
+						"splitArea": {
+							"show": true,
+							"areaStyle": {
+								"opacity": 1
+							}
+						},
+						"axisLine": {
+							"show": true,
+							"onZero": true,
+							"onZeroAxisIndex": 0
+						}
+					},
+					"title": [
+						{
+							"text": "\u7403\u961f\u96f7\u8fbe\u56fe",
+							"padding": 5,
+							"itemGap": 10
+						}
+					]
+				};
+						chart_e556338aae6c4c2d96e814be224a92b2.setOption(option_e556338aae6c4c2d96e814be224a92b2);
+					</script>
+				</div>
+				<div class="row">
+                    <div class="col-md-8 mx-auto" style="padding-left: 140px;">
+                        <button class="btn btn-primary btn-warning">Comments</button>
+                        <button class="btn btn-primary btn-round">Share</button>
+                        <button class="btn btn-primary btn-round btn-info">
+                            <i class="material-icons">favorite</i> Like
+                        </button>
+                        <button class="btn btn-primary btn-fab btn-round btn-info">
+                            <i class="material-icons">favorite</i>
+                        </button>
+                        <button class="btn btn-primary btn-link magic6" style="color: #00BCD4">SHOW</button>
+                    </div>
+                </div>
+				<!--隐藏文本-->
+				<div class="show6" style="display: none;">
+					<h3><small>本雷达图选取了英超目前具有代表性的几支球队。从中不难看出，影响球队排名的直接因素是进攻能力，比较求三支球队可知好的进攻往往能弥补防守能力上的不足。另外，本雷达图能反映出比较有意思的一点是，英超倒数第二名（伯恩利）却有着很高的制空能力<br>
+						附：计算依据<br>
+						进攻：由球队进球数决定<br>
+						防守：由球队失球数和球队被射门数的比值决定<br>
+						精准：由球队射正数和射门数的比值决定<br>
+						制空：由球队头球数决定<br>
+						控制：由控球率决定<br>
+						拼抢：由犯规数决定<br>
+						<font style="font-style: italic">数据来源：球探体育</font>						
+						</small>
+					</h3>
+				</div>
+				
+				<!-- 回到顶部 和 音乐播放  -->
+				<div class="backtotop">
+					<a href="#">
+						<img id="solid" src="assets/img/rocket-sprite.png" width="48" height="78" alt=""/>
+					</a>
+					<img id="cover" src="assets/img/rocketfire.png" width="48" height="78" alt=""/>
+				</div>
+				<div class="music_play hi">
+					<img src="assets/img/bilibili_logo_smalltv_pink.png" onClick="play()" alt="user">
+					<audio id="music" src="assets/video/1.mp3" loop autoplay ></audio>
+				</div>
+
+			</div>
+        </div>
+	</div>
+</div>
+
+
+
+<!-- Classic Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">clear</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link">Nice Button</button>
+                <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  End Modal -->
+<footer class="footer" data-background-color="black">
+    <div class="container">
+        <nav class="float-left">
+            <ul>
+                <li>
+                    <a href="https://www.creative-tim.com/">
+                        Creative Tim
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.creative-tim.com/presentation">
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.creative-tim.com/blog">
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.creative-tim.com/license">
+                        Licenses
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="copyright float-right">
+            &copy;
+            <script>
+                document.write(new Date().getFullYear())
+            </script>, made with <i class="material-icons">favorite</i> by
+            <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> for a better web.
+        </div>
+    </div>
+</footer>
+<!--   Core JS Files   -->
+<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="./assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+<script src="./assets/js/plugins/moment.min.js"></script>
+<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+<script src="./assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+<!--  Google Maps Plugin    -->
+<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+<script src="./assets/js/material-kit.js?v=2.0.7" type="text/javascript"></script>
+
+
+<!--小部件的JS-->
+<script src="./assets/js/back to top.js" type="text/javascript"></script>
+<script src="./assets/js/music_play.js" type="text/javascript"></script>
+
+<!--隐藏文本的JS-->
+<script type="text/javascript">
+    //获取元素
+    var magic1 = document.getElementsByClassName('magic1')[0];
+    var showDiv1 = document.getElementsByClassName('show1')[0];
+
+	//添加点击事件
+    function out1(){
+        magic1.onclick = function(){
+			magic1.innerHTML = "HIDE";
+    		showDiv1.style.display = 'block';
+    
+			magic1.onclick = function(){
+    			magic1.innerHTML = "SHOW";
+    			showDiv1.style.display = 'none';
+    
+				out1();
+			}
+		}
+	}
+    out1();
+	
+	//获取元素
+    var magic2 = document.getElementsByClassName('magic2')[0];
+    var showDiv2 = document.getElementsByClassName('show2')[0];
+
+	//添加点击事件
+    function out2(){
+        magic2.onclick = function(){
+			magic2.innerHTML = "HIDE";
+    		showDiv2.style.display = 'block';
+    
+			magic2.onclick = function(){
+    			magic2.innerHTML = "SHOW";
+    			showDiv2.style.display = 'none';
+    
+				out2();
+			}
+		}
+	}
+    out2();
+	
+	//获取元素
+    var magic3 = document.getElementsByClassName('magic3')[0];
+    var showDiv3 = document.getElementsByClassName('show3')[0];
+
+	//添加点击事件
+    function out3(){
+        magic3.onclick = function(){
+			magic3.innerHTML = "HIDE";
+    		showDiv3.style.display = 'block';
+    
+			magic3.onclick = function(){
+    			magic3.innerHTML = "SHOW";
+    			showDiv3.style.display = 'none';
+    
+				out3();
+			}
+		}
+	}
+    out3();
+	
+	//获取元素
+    var magic4 = document.getElementsByClassName('magic4')[0];
+    var showDiv4 = document.getElementsByClassName('show4')[0];
+
+	//添加点击事件
+    function out4(){
+        magic4.onclick = function(){
+			magic4.innerHTML = "HIDE";
+    		showDiv4.style.display = 'block';
+    
+			magic4.onclick = function(){
+    			magic4.innerHTML = "SHOW";
+    			showDiv4.style.display = 'none';
+    
+				out4();
+			}
+		}
+	}
+    out4();
+	
+	//获取元素
+    var magic5 = document.getElementsByClassName('magic5')[0];
+    var showDiv5 = document.getElementsByClassName('show5')[0];
+
+	//添加点击事件
+    function out5(){
+        magic5.onclick = function(){
+			magic5.innerHTML = "HIDE";
+    		showDiv5.style.display = 'block';
+    
+			magic5.onclick = function(){
+    			magic5.innerHTML = "SHOW";
+    			showDiv5.style.display = 'none';
+    
+				out5();
+			}
+		}
+	}
+    out5();
+	
+	//获取元素
+    var magic6 = document.getElementsByClassName('magic6')[0];
+    var showDiv6 = document.getElementsByClassName('show6')[0];
+
+	//添加点击事件
+    function out6(){
+        magic6.onclick = function(){
+			magic6.innerHTML = "HIDE";
+    		showDiv6.style.display = 'block';
+    
+			magic6.onclick = function(){
+    			magic6.innerHTML = "SHOW";
+    			showDiv6.style.display = 'none';
+    
+				out6();
+			}
+		}
+	}
+    out6();
+	
+	//获取元素
+    var magic7 = document.getElementsByClassName('magic7')[0];
+    var showDiv7 = document.getElementsByClassName('show7')[0];
+
+	//添加点击事件
+    function out7(){
+        magic7.onclick = function(){
+			magic7.innerHTML = "HIDE";
+    		showDiv7.style.display = 'block';
+    
+			magic7.onclick = function(){
+    			magic7.innerHTML = "SHOW";
+    			showDiv7.style.display = 'none';
+    
+				out7();
+			}
+		}
+	}
+    out7();
+</script>
+
+<script>
+    $(document).ready(function() {
+        //init DateTimePickers
+        materialKit.initFormExtendedDatetimepickers();
+
+        // Sliders Init
+        materialKit.initSliders();
+    });
+
+
+    function scrollToDownload() {
+        if ($('.section-download').length != 0) {
+            $("html, body").animate({
+                scrollTop: $('.section-download').offset().top
+            }, 1000);
+        }
+    }
+</script>
+</body>
+
+</html>

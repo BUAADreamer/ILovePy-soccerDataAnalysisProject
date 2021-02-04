@@ -1,0 +1,1484 @@
+<!--
+=========================================================
+Material Kit - v2.0.7
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-kit
+Copyright 2020 Creative Tim (https://www.creative-tim.com/)
+
+Coded by Creative Tim
+
+=========================================================
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        ILovePy
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">-->
+    <!-- CSS Files -->
+    <link href="./assets/css/material-kit.css?v=2.0.7" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="./assets/demo/demo.css" rel="stylesheet" />
+
+	<!-- 图表插入的JS World map  -->
+	<script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+	<script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/world.js"></script>
+	<script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-liquidfill.min.js"></script>
+	<script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts-wordcloud.min.js"></script>
+	<!-- 回到顶部 和 音乐播放的 CSS-->
+	<link href="./assets/css/back to top.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body class="index-page sidebar-collapse">
+<nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="http://127.0.0.1:5000/ ">
+                Index</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <i class="material-icons">apps</i> charts
+                    </a>
+                    <div class="dropdown-menu dropdown-with-icons">
+                        <a href="./1" class="dropdown-item" target="_self">
+                            <i class="material-icons">bar_chart</i> Describe
+                        </a>
+                        <a href="./2" class="dropdown-item" target="_self">
+                            <i class="material-icons">border_inner</i> World map
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./analyze" target="_self">
+                        <i class="material-icons">library_add</i> Analyze
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./crawler" target="_self">
+                        <i class="material-icons">cloud_download</i> crawler
+                    </a>
+                </li>
+                <li class="nav-item">
+                    {% if user!="Stranger" %}
+                    <a class="nav-link" href="./logout" target="_self">
+                        <i class="material-icons">domain</i> log out
+                    </a>
+                    {% else %}
+                    <a class="nav-link" href="./login" target="_self">
+                        <i class="material-icons">person_add</i> log in
+                    </a>
+                    {% endif %}
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./profile" target="_self">
+                        <i class="material-icons">account_box</i> profile
+                    </a>
+                </li>
+                <!--          <li class="nav-item">-->
+                <!--            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Follow us on Twitter" rel="nofollow">-->
+                <!--              <i class="fa fa-twitter"></i>-->
+                <!--            </a>-->
+                <!--          </li>-->
+                <!--          <li class="nav-item">-->
+                <!--            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">-->
+                <!--              <i class="fa fa-facebook-square"></i>-->
+                <!--            </a>-->
+                <!--          </li>-->
+                <!--          <li class="nav-item">-->
+                <!--            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">-->
+                <!--              <i class="fa fa-instagram"></i>-->
+                <!--            </a>-->
+                <!--          </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('./assets/img/bg_for_soccer.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+                <div class="brand">
+                    <h1 style="color:white; font-family: Bell MT">World Map</h1><br>
+<!--                    <font face="Microsoft PhagsPaC" size="+2">A Soccer Data analysis system.</font>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main main-raised">
+    <div class="section section-basic">
+        <div class="container">
+            <div class="title">
+                <h2 style="font-family: 'Edwardian Script ITC'; font-size: 75px;">World map</h2>
+            </div>
+            <!--  图表整体1 -->
+            <div id="buttons" class="cd-section">
+                <div class="title">
+                    <h3>1980-2018年间斩获世界杯前三殊荣的国家所在地 <br>
+                        <small>欧洲与南美洲至今仍然掌控着世界杯的冠军,其中德国和巴西领跑桂冠榜</small>
+                    </h3>
+                </div>
+				<div class="title">
+                    <h4 style="font-weight: bolder;">词云图摘取热点版</h4>
+                </div>
+				<div id="a5ee405fa58941d58b29ee2e9e3d7289" class="chart-container" style="width:450px; height:250px; margin-left: 100px;">
+					<script>
+						var chart_a5ee405fa58941d58b29ee2e9e3d7289 = echarts.init(
+							document.getElementById('a5ee405fa58941d58b29ee2e9e3d7289'), 'white', {renderer: 'canvas'});
+						var option_a5ee405fa58941d58b29ee2e9e3d7289 = {
+					"animation": true,
+					"animationThreshold": 2000,
+					"animationDuration": 1000,
+					"animationEasing": "cubicOut",
+					"animationDelay": 0,
+					"animationDurationUpdate": 300,
+					"animationEasingUpdate": "cubicOut",
+					"animationDelayUpdate": 0,
+					"color": [
+						"#c23531",
+						"#2f4554",
+						"#61a0a8",
+						"#d48265",
+						"#749f83",
+						"#ca8622",
+						"#bda29a",
+						"#6e7074",
+						"#546570",
+						"#c4ccd3",
+						"#f05b72",
+						"#ef5b9c",
+						"#f47920",
+						"#905a3d",
+						"#fab27b",
+						"#2a5caa",
+						"#444693",
+						"#726930",
+						"#b2d235",
+						"#6d8346",
+						"#ac6767",
+						"#1d953f",
+						"#6950a1",
+						"#918597"
+					],
+					"series": [
+						{
+							"type": "wordCloud",
+							"name": "\u70ed\u70b9\u5206\u6790",
+							"shape": "pentagon",
+							"rotationRange": [
+								0,
+								0
+							],
+							"rotationStep": 45,
+							"girdSize": 20,
+							"sizeRange": [
+								26,
+								66
+							],
+							"data": [
+								{
+									"name": "\u5df4\u897f",
+									"value": 9,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(117,82,40)"
+										}
+									}
+								},
+								{
+									"name": "\u610f\u5927\u5229",
+									"value": 7,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(38,23,92)"
+										}
+									}
+								},
+								{
+									"name": "\u5fb7\u56fd",
+									"value": 12,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(44,81,105)"
+										}
+									}
+								},
+								{
+									"name": "\u6cd5\u56fd",
+									"value": 5,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(40,7,54)"
+										}
+									}
+								},
+								{
+									"name": "\u4e4c\u62c9\u572d",
+									"value": 2,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(59,78,87)"
+										}
+									}
+								},
+								{
+									"name": "\u963f\u6839\u5ef7",
+									"value": 5,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(72,123,22)"
+										}
+									}
+								},
+								{
+									"name": "\u82f1\u683c\u5170",
+									"value": 1,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(63,13,71)"
+										}
+									}
+								},
+								{
+									"name": "\u897f\u73ed\u7259",
+									"value": 1,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(54,106,112)"
+										}
+									}
+								},
+								{
+									"name": "\u8377\u5170",
+									"value": 4,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(93,159,14)"
+										}
+									}
+								},
+								{
+									"name": "\u6377\u514b",
+									"value": 2,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(146,41,71)"
+										}
+									}
+								},
+								{
+									"name": "\u5308\u7259\u5229",
+									"value": 2,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(145,91,1)"
+										}
+									}
+								},
+								{
+									"name": "\u514b\u7f57\u5730\u4e9a",
+									"value": 2,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(133,98,142)"
+										}
+									}
+								},
+								{
+									"name": "\u745e\u5178",
+									"value": 3,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(107,75,74)"
+										}
+									}
+								},
+								{
+									"name": "\u6ce2\u5170",
+									"value": 2,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(146,73,135)"
+										}
+									}
+								},
+								{
+									"name": "\u7f8e\u56fd",
+									"value": 1,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(125,11,75)"
+										}
+									}
+								},
+								{
+									"name": "\u571f\u8033\u5176",
+									"value": 1,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(34,149,23)"
+										}
+									}
+								},
+								{
+									"name": "\u667a\u5229",
+									"value": 1,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(134,58,41)"
+										}
+									}
+								},
+								{
+									"name": "\u6fb3\u5927\u5229\u4e9a",
+									"value": 1,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(120,39,84)"
+										}
+									}
+								},
+								{
+									"name": "\u79d8\u9c81",
+									"value": 1,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(106,43,137)"
+										}
+									}
+								},
+								{
+									"name": "\u8461\u8404\u7259",
+									"value": 1,
+									"textStyle": {
+										"normal": {
+											"color": "rgb(27,70,53)"
+										}
+									}
+								}
+							],
+							"drawOutOfBound": false,
+							"textStyle": {
+								"emphasis": {}
+							}
+						}
+					],
+					"legend": [
+						{
+							"data": [],
+							"selected": {},
+							"show": true,
+							"padding": 5,
+							"itemGap": 10,
+							"itemWidth": 25,
+							"itemHeight": 14
+						}
+					],
+					"tooltip": {
+						"show": true,
+						"trigger": "item",
+						"triggerOn": "mousemove|click",
+						"axisPointer": {
+							"type": "line"
+						},
+						"showContent": true,
+						"alwaysShowContent": false,
+						"showDelay": 0,
+						"hideDelay": 100,
+						"textStyle": {
+							"fontSize": 14
+						},
+						"borderWidth": 0,
+						"padding": 5
+					},
+					"title": [
+						{
+							"padding": 5,
+							"itemGap": 10
+						}
+					]
+				};
+						chart_a5ee405fa58941d58b29ee2e9e3d7289.setOption(option_a5ee405fa58941d58b29ee2e9e3d7289);
+					</script>
+				</div>
+
+				<div class="title">
+                    <h4 style="font-weight: bolder;">世界图一览详情版</h4>
+                </div>
+				<div id="913d6c5c710d4efbafc979181ffb340e" class="chart-container" style="width:900px; height:500px; margin-left: 100px;">
+					<script>
+						var chart_913d6c5c710d4efbafc979181ffb340e = echarts.init(
+							document.getElementById('913d6c5c710d4efbafc979181ffb340e'), 'white', {renderer: 'canvas'});
+						var option_913d6c5c710d4efbafc979181ffb340e = {
+					"animation": true,
+					"animationThreshold": 2000,
+					"animationDuration": 1000,
+					"animationEasing": "cubicOut",
+					"animationDelay": 0,
+					"animationDurationUpdate": 300,
+					"animationEasingUpdate": "cubicOut",
+					"animationDelayUpdate": 0,
+					"color": [
+						"#c23531",
+						"#2f4554",
+						"#61a0a8",
+						"#d48265",
+						"#749f83",
+						"#ca8622",
+						"#bda29a",
+						"#6e7074",
+						"#546570",
+						"#c4ccd3",
+						"#f05b72",
+						"#ef5b9c",
+						"#f47920",
+						"#905a3d",
+						"#fab27b",
+						"#2a5caa",
+						"#444693",
+						"#726930",
+						"#b2d235",
+						"#6d8346",
+						"#ac6767",
+						"#1d953f",
+						"#6950a1",
+						"#918597"
+					],
+					"series": [
+						{
+							"type": "map",
+							"name": "\u51a0\u519b",
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"mapType": "world",
+							"data": [
+								{
+									"name": "Brazil",
+									"value": 5
+								},
+								{
+									"name": "Italy",
+									"value": 4
+								},
+								{
+									"name": "Germany",
+									"value": 4
+								},
+								{
+									"name": "France",
+									"value": 2
+								},
+								{
+									"name": "Uruguay",
+									"value": 2
+								},
+								{
+									"name": "Argentina",
+									"value": 2
+								},
+								{
+									"name": "England",
+									"value": 1
+								},
+								{
+									"name": "Spain",
+									"value": 1
+								}
+							],
+							"roam": true,
+							"aspectScale": 0.75,
+							"nameProperty": "name",
+							"selectedMode": false,
+							"zoom": 1,
+							"mapValueCalculation": "sum",
+							"showLegendSymbol": true,
+							"emphasis": {},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						},
+						{
+							"type": "map",
+							"name": "\u4e9a\u519b",
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"mapType": "world",
+							"data": [
+								{
+									"name": "Argentina",
+									"value": 3
+								},
+								{
+									"name": "Netherlands",
+									"value": 3
+								},
+								{
+									"name": "Germany",
+									"value": 4
+								},
+								{
+									"name": "Czechoslovakia",
+									"value": 2
+								},
+								{
+									"name": "Brazil",
+									"value": 2
+								},
+								{
+									"name": "Hungary",
+									"value": 2
+								},
+								{
+									"name": "Italy",
+									"value": 2
+								},
+								{
+									"name": "France",
+									"value": 1
+								},
+								{
+									"name": "Croatia",
+									"value": 1
+								},
+								{
+									"name": "Sweden",
+									"value": 1
+								}
+							],
+							"roam": true,
+							"aspectScale": 0.75,
+							"nameProperty": "name",
+							"selectedMode": false,
+							"zoom": 1,
+							"mapValueCalculation": "sum",
+							"showLegendSymbol": true,
+							"emphasis": {},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						},
+						{
+							"type": "map",
+							"name": "\u5b63\u519b",
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"mapType": "world",
+							"data": [
+								{
+									"name": "Germany",
+									"value": 4
+								},
+								{
+									"name": "Sweden",
+									"value": 2
+								},
+								{
+									"name": "Poland",
+									"value": 2
+								},
+								{
+									"name": "Brazil",
+									"value": 2
+								},
+								{
+									"name": "France",
+									"value": 2
+								},
+								{
+									"name": "USA",
+									"value": 1
+								},
+								{
+									"name": "Turkey",
+									"value": 1
+								},
+								{
+									"name": "Italy",
+									"value": 1
+								},
+								{
+									"name": "Chile",
+									"value": 1
+								},
+								{
+									"name": "Netherlands",
+									"value": 1
+								},
+								{
+									"name": "Austria",
+									"value": 1
+								},
+								{
+									"name": "Croatia",
+									"value": 1
+								},
+								{
+									"name": "Belgium",
+									"value": 1
+								},
+								{
+									"name": "Portugal",
+									"value": 1
+								}
+							],
+							"roam": true,
+							"aspectScale": 0.75,
+							"nameProperty": "name",
+							"selectedMode": false,
+							"zoom": 1,
+							"mapValueCalculation": "sum",
+							"showLegendSymbol": true,
+							"emphasis": {},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						}
+					],
+					"legend": [
+						{
+							"data": [
+								"\u51a0\u519b",
+								"\u4e9a\u519b",
+								"\u5b63\u519b"
+							],
+							"selected": {
+								"\u51a0\u519b": true,
+								"\u4e9a\u519b": true,
+								"\u5b63\u519b": true
+							},
+							"show": true,
+							"padding": 5,
+							"itemGap": 10,
+							"itemWidth": 25,
+							"itemHeight": 14
+						}
+					],
+					"tooltip": {
+						"show": true,
+						"trigger": "item",
+						"triggerOn": "mousemove|click",
+						"axisPointer": {
+							"type": "line"
+						},
+						"showContent": true,
+						"alwaysShowContent": false,
+						"showDelay": 0,
+						"hideDelay": 100,
+						"textStyle": {
+							"fontSize": 14
+						},
+						"borderWidth": 0,
+						"padding": 5
+					},
+					"title": [
+						{
+							"text": "\u4e16\u754c\u676f\u5404\u56fd\u524d\u4e09\u6b21\u6570",
+							"padding": 5,
+							"itemGap": 10
+						}
+					],
+					"visualMap": {
+						"show": true,
+						"type": "continuous",
+						"min": 0,
+						"max": 6,
+						"inRange": {
+							"color": [
+								"#50a3ba",
+								"#eac763",
+								"#d94e5d"
+							]
+						},
+						"calculable": true,
+						"inverse": false,
+						"splitNumber": 5,
+						"orient": "vertical",
+						"showLabel": true,
+						"itemWidth": 20,
+						"itemHeight": 140,
+						"borderWidth": 0
+					}
+				};
+						chart_913d6c5c710d4efbafc979181ffb340e.setOption(option_913d6c5c710d4efbafc979181ffb340e);
+					</script>
+				</div>
+				<div class="row">
+					<br>
+				</div>
+				<div class="row">
+                    <div class="col-md-6 mx-auto" style="padding-left: 100px;">
+                        <button class="btn btn-primary btn-warning">Comments</button>
+                        <button class="btn btn-primary btn-round">Share</button>
+                        <button class="btn btn-primary btn-round btn-info">
+                            <i class="material-icons">favorite</i> Like
+                        </button>
+                        <button class="btn btn-primary btn-link magic1" style="color: #00BCD4">SHOW</button>
+                    </div>
+                </div>
+				
+				<!--隐藏文本-->
+				<div class="show1" style="display: none;">
+					<h3><small>分析图中数据可知，全世界范围中，获得参加世界杯资格的主要集中在西欧，北美洲，南美洲和中东地区，考虑到世界杯晋级资格获得的规则，按照各大洲分布较均匀，结合冠军国家分布图来看，可以发现世界杯优胜获得有较强的继承性与聚集性，存在老牌强国，主要集中于西欧，南美，其中西欧占主要地位。<br><font style="font-style: italic">数据来源：Kaggle、百度百科</font></small></h3>
+				</div>
+
+            </div>
+
+			<div class="space-70"></div>
+
+			<!--  图表整体2 -->
+			<div id="buttons" class="cd-section">
+                <div class="title">
+                    <h3>1980-2018年间参加世界杯的国家的总次数<br>
+                        <small>即使是从参与世界杯的次数来看，欧洲与美洲仍然具有毋庸置疑的优势，中国迄今为止仅有一次进入世界杯</small>
+                    </h3>
+                </div>
+
+				<div id="b85f6399584a4269b782b091c5707857" class="chart-container" style="width:900px; height:500px; margin-left: 100px;">
+					<script>
+						var chart_b85f6399584a4269b782b091c5707857 = echarts.init(
+							document.getElementById('b85f6399584a4269b782b091c5707857'), 'white', {renderer: 'canvas'});
+						var option_b85f6399584a4269b782b091c5707857 = {
+					"animation": true,
+					"animationThreshold": 2000,
+					"animationDuration": 1000,
+					"animationEasing": "cubicOut",
+					"animationDelay": 0,
+					"animationDurationUpdate": 300,
+					"animationEasingUpdate": "cubicOut",
+					"animationDelayUpdate": 0,
+					"color": [
+						"#c23531",
+						"#2f4554",
+						"#61a0a8",
+						"#d48265",
+						"#749f83",
+						"#ca8622",
+						"#bda29a",
+						"#6e7074",
+						"#546570",
+						"#c4ccd3",
+						"#f05b72",
+						"#ef5b9c",
+						"#f47920",
+						"#905a3d",
+						"#fab27b",
+						"#2a5caa",
+						"#444693",
+						"#726930",
+						"#b2d235",
+						"#6d8346",
+						"#ac6767",
+						"#1d953f",
+						"#6950a1",
+						"#918597"
+					],
+					"series": [
+						{
+							"type": "map",
+							"name": "\u53c2\u52a0\u6b21\u6570",
+							"label": {
+								"show": false,
+								"position": "top",
+								"margin": 8
+							},
+							"mapType": "world",
+							"data": [
+								{
+									"name": "Brazil",
+									"value": 18
+								},
+								{
+									"name": "Germany",
+									"value": 17
+								},
+								{
+									"name": "Italy",
+									"value": 16
+								},
+								{
+									"name": "Argentina",
+									"value": 14
+								},
+								{
+									"name": "Mexico",
+									"value": 13
+								},
+								{
+									"name": "England",
+									"value": 12
+								},
+								{
+									"name": "Spain",
+									"value": 12
+								},
+								{
+									"name": "France",
+									"value": 12
+								},
+								{
+									"name": "Belgium",
+									"value": 11
+								},
+								{
+									"name": "Sweden",
+									"value": 11
+								},
+								{
+									"name": "Uruguay",
+									"value": 10
+								},
+								{
+									"name": "Yugoslavia",
+									"value": 9
+								},
+								{
+									"name": "Czech Rep.",
+									"value": 9
+								},
+								{
+									"name": "Hungary",
+									"value": 9
+								},
+								{
+									"name": "Netherlands",
+									"value": 8
+								},
+								{
+									"name": "United States",
+									"value": 8
+								},
+								{
+									"name": "\u82cf\u683c\u5170",
+									"value": 8
+								},
+								{
+									"name": "Switzerland",
+									"value": 8
+								},
+								{
+									"name": "Bulgaria",
+									"value": 7
+								},
+								{
+									"name": "Paraguay",
+									"value": 7
+								},
+								{
+									"name": "Romania",
+									"value": 7
+								},
+								{
+									"name": "Russia",
+									"value": 7
+								},
+								{
+									"name": "Austria",
+									"value": 7
+								},
+								{
+									"name": "Chile",
+									"value": 7
+								},
+								{
+									"name": "Korea",
+									"value": 7
+								},
+								{
+									"name": "Poland",
+									"value": 7
+								},
+								{
+									"name": "Cameroon",
+									"value": 5
+								},
+								{
+									"name": "Saudi Arabia",
+									"value": 4
+								},
+								{
+									"name": "Tunisia",
+									"value": 4
+								},
+								{
+									"name": "Morocco",
+									"value": 4
+								},
+								{
+									"name": "Portugal",
+									"value": 4
+								},
+								{
+									"name": "Colombia",
+									"value": 4
+								},
+								{
+									"name": "Peru",
+									"value": 4
+								},
+								{
+									"name": "Iran",
+									"value": 3
+								},
+								{
+									"name": "Croatia",
+									"value": 3
+								},
+								{
+									"name": "Japan",
+									"value": 3
+								},
+								{
+									"name": "Denmark",
+									"value": 3
+								},
+								{
+									"name": "Ireland",
+									"value": 3
+								},
+								{
+									"name": "Nigeria",
+									"value": 3
+								},
+								{
+									"name": "Bolivia",
+									"value": 3
+								},
+								{
+									"name": "Norway",
+									"value": 3
+								},
+								{
+									"name": "Costa Rica",
+									"value": 3
+								},
+								{
+									"name": "\u7231\u5c14\u5170",
+									"value": 3
+								},
+								{
+									"name": "Egypt",
+									"value": 2
+								},
+								{
+									"name": "Turkey",
+									"value": 2
+								},
+								{
+									"name": "Australia",
+									"value": 2
+								},
+								{
+									"name": "\u4fc4\u7f57\u65af",
+									"value": 2
+								},
+								{
+									"name": "South Africa",
+									"value": 2
+								},
+								{
+									"name": "Algeria",
+									"value": 2
+								},
+								{
+									"name": "El Salvador",
+									"value": 2
+								},
+								{
+									"name": "Ecuador",
+									"value": 2
+								},
+								{
+									"name": "\u7279\u7acb\u5c3c\u8fbe\u548c\u591a\u5df4\u54e5",
+									"value": 1
+								},
+								{
+									"name": "China",
+									"value": 1
+								},
+								{
+									"name": "Serbia and Montenegro",
+									"value": 1
+								},
+								{
+									"name": "C\u00f4te d'Ivoire",
+									"value": 1
+								},
+								{
+									"name": "Ukraine",
+									"value": 1
+								},
+								{
+									"name": "Dem.Rep.Congo",
+									"value": 1
+								},
+								{
+									"name": "Togo",
+									"value": 1
+								},
+								{
+									"name": "Dem. Rep. Korea",
+									"value": 1
+								},
+								{
+									"name": "Slovenia",
+									"value": 1
+								},
+								{
+									"name": "Angola",
+									"value": 1
+								},
+								{
+									"name": "Ghana",
+									"value": 1
+								},
+								{
+									"name": "Haiti",
+									"value": 1
+								},
+								{
+									"name": "Senegal",
+									"value": 1
+								},
+								{
+									"name": "Jamaica",
+									"value": 1
+								},
+								{
+									"name": "Kuwait",
+									"value": 1
+								},
+								{
+									"name": "Honduras",
+									"value": 1
+								},
+								{
+									"name": "Cuba",
+									"value": 1
+								},
+								{
+									"name": "East Indies",
+									"value": 1
+								},
+								{
+									"name": "United Arab Emirates",
+									"value": 1
+								},
+								{
+									"name": "Welsh",
+									"value": 1
+								},
+								{
+									"name": "Israel",
+									"value": 1
+								},
+								{
+									"name": "Greece",
+									"value": 1
+								},
+								{
+									"name": "New Zealand",
+									"value": 1
+								},
+								{
+									"name": "Iraq",
+									"value": 1
+								},
+								{
+									"name": "Canada",
+									"value": 1
+								}
+							],
+							"roam": true,
+							"aspectScale": 0.75,
+							"nameProperty": "name",
+							"selectedMode": false,
+							"zoom": 1,
+							"mapValueCalculation": "sum",
+							"showLegendSymbol": true,
+							"emphasis": {},
+							"rippleEffect": {
+								"show": true,
+								"brushType": "stroke",
+								"scale": 2.5,
+								"period": 4
+							}
+						}
+					],
+					"legend": [
+						{
+							"data": [
+								"\u53c2\u52a0\u6b21\u6570"
+							],
+							"selected": {
+								"\u53c2\u52a0\u6b21\u6570": true
+							},
+							"show": true,
+							"padding": 5,
+							"itemGap": 10,
+							"itemWidth": 25,
+							"itemHeight": 14
+						}
+					],
+					"tooltip": {
+						"show": true,
+						"trigger": "item",
+						"triggerOn": "mousemove|click",
+						"axisPointer": {
+							"type": "line"
+						},
+						"showContent": true,
+						"alwaysShowContent": false,
+						"showDelay": 0,
+						"hideDelay": 100,
+						"textStyle": {
+							"fontSize": 14
+						},
+						"borderWidth": 0,
+						"padding": 5
+					},
+					"title": [
+						{
+							"text": "\u4e16\u754c\u676f\u5404\u56fd\u53c2\u52a0\u6b21\u6570",
+							"padding": 5,
+							"itemGap": 10
+						}
+					],
+					"visualMap": {
+						"show": true,
+						"type": "continuous",
+						"min": 0,
+						"max": 10,
+						"inRange": {
+							"color": [
+								"#50a3ba",
+								"#eac763",
+								"#d94e5d"
+							]
+						},
+						"calculable": true,
+						"inverse": false,
+						"splitNumber": 5,
+						"orient": "vertical",
+						"showLabel": true,
+						"itemWidth": 20,
+						"itemHeight": 140,
+						"borderWidth": 0
+					}
+				};
+						chart_b85f6399584a4269b782b091c5707857.setOption(option_b85f6399584a4269b782b091c5707857);
+					</script>
+				</div>
+
+				<div class="row">
+					<br>
+				</div>
+				<div class="row">
+                    <div class="col-md-6 mx-auto" style="padding-left: 100px;">
+                        <button class="btn btn-primary btn-warning">Comments</button>
+                        <button class="btn btn-primary btn-round">Share</button>
+                        <button class="btn btn-primary btn-round btn-info">
+                            <i class="material-icons">favorite</i> Like
+                        </button>
+                        <button class="btn btn-primary btn-link magic2" style="color: #00BCD4">SHOW</button>
+                    </div>
+                </div>
+				
+				<!--隐藏文本-->
+				<div class="show2" style="display: none;">
+					<h3><small>隐藏的内容——————<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。<br>基于FLASK+VUE模板制作一个世界杯数据可视化分析平台，并结合机器学习的知识完成2022年世界杯数据的预测和结果展示<br>打造用户体验良好的web系统，加入爬取数据自动可视化页面，上传文件得到数据结果页面。</small></h3>
+				</div>
+				
+				<!-- 回到顶部 和 音乐播放  -->
+				<div class="backtotop">
+					<a href="#">
+						<img id="solid" src="assets/img/rocket-sprite.png" width="48" height="78" alt=""/>
+					</a>
+					<img id="cover" src="assets/img/rocketfire.png" width="48" height="78" alt=""/>
+				</div>
+				<div class="music_play hi">
+					<img src="assets/img/bilibili_logo_smalltv_pink.png" onClick="play()" alt="user">
+					<audio id="music" src="assets/video/1.mp3" loop autoplay ></audio>
+				</div>
+            </div>
+            <div class="space-50"></div>
+            <!--   textarea/checkbox/radio/toggle -->
+        </div>
+    </div>
+</div>
+<!-- Classic Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">clear</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link">Nice Button</button>
+                <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  End Modal -->
+<footer class="footer" data-background-color="black">
+    <div class="container">
+        <nav class="float-left">
+            <ul>
+                <li>
+                    <a href="https://www.creative-tim.com/">
+                        Creative Tim
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.creative-tim.com/presentation">
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.creative-tim.com/blog">
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.creative-tim.com/license">
+                        Licenses
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="copyright float-right">
+            &copy;
+            <script>
+                document.write(new Date().getFullYear())
+            </script>, made with <i class="material-icons">favorite</i> by
+            <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> for a better web.
+        </div>
+    </div>
+</footer>
+<!--   Core JS Files   -->
+<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="./assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+<script src="./assets/js/plugins/moment.min.js"></script>
+<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+<script src="./assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+<!--  Google Maps Plugin    -->
+<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+<script src="./assets/js/material-kit.js?v=2.0.7" type="text/javascript"></script>
+
+
+<!--小部件的JS-->
+<script src="./assets/js/back to top.js" type="text/javascript"></script>
+<script src="./assets/js/music_play.js" type="text/javascript"></script>
+
+<!--隐藏文本的JS-->
+<script type="text/javascript">
+    //获取元素
+    var magic1 = document.getElementsByClassName('magic1')[0];
+    var showDiv1 = document.getElementsByClassName('show1')[0];
+
+	//添加点击事件
+    function out1(){
+        magic1.onclick = function(){
+			magic1.innerHTML = "HIDE";
+    		showDiv1.style.display = 'block';
+    
+			magic1.onclick = function(){
+    			magic1.innerHTML = "SHOW";
+    			showDiv1.style.display = 'none';
+    
+				out1();
+			}
+		}
+	}
+    out1();
+	
+	//获取元素
+    var magic2 = document.getElementsByClassName('magic2')[0];
+    var showDiv2 = document.getElementsByClassName('show2')[0];
+
+	//添加点击事件
+    function out2(){
+        magic2.onclick = function(){
+			magic2.innerHTML = "HIDE";
+    		showDiv2.style.display = 'block';
+    
+			magic2.onclick = function(){
+    			magic2.innerHTML = "SHOW";
+    			showDiv2.style.display = 'none';
+    
+				out2();
+			}
+		}
+	}
+    out2();
+	
+	//获取元素
+    var magic3 = document.getElementsByClassName('magic3')[0];
+    var showDiv3 = document.getElementsByClassName('show3')[0];
+
+	//添加点击事件
+    function out3(){
+        magic3.onclick = function(){
+			magic3.innerHTML = "HIDE";
+    		showDiv3.style.display = 'block';
+    
+			magic3.onclick = function(){
+    			magic3.innerHTML = "SHOW";
+    			showDiv3.style.display = 'none';
+    
+				out3();
+			}
+		}
+	}
+    out3();
+	
+	//获取元素
+    var magic4 = document.getElementsByClassName('magic4')[0];
+    var showDiv4 = document.getElementsByClassName('show4')[0];
+
+	//添加点击事件
+    function out4(){
+        magic4.onclick = function(){
+			magic4.innerHTML = "HIDE";
+    		showDiv4.style.display = 'block';
+    
+			magic4.onclick = function(){
+    			magic4.innerHTML = "SHOW";
+    			showDiv4.style.display = 'none';
+    
+				out4();
+			}
+		}
+	}
+    out4();
+	
+	//获取元素
+    var magic5 = document.getElementsByClassName('magic5')[0];
+    var showDiv5 = document.getElementsByClassName('show5')[0];
+
+	//添加点击事件
+    function out5(){
+        magic5.onclick = function(){
+			magic5.innerHTML = "HIDE";
+    		showDiv5.style.display = 'block';
+    
+			magic5.onclick = function(){
+    			magic5.innerHTML = "SHOW";
+    			showDiv5.style.display = 'none';
+    
+				out5();
+			}
+		}
+	}
+    out5();
+	
+	//获取元素
+    var magic6 = document.getElementsByClassName('magic6')[0];
+    var showDiv6 = document.getElementsByClassName('show6')[0];
+
+	//添加点击事件
+    function out6(){
+        magic6.onclick = function(){
+			magic6.innerHTML = "HIDE";
+    		showDiv6.style.display = 'block';
+    
+			magic6.onclick = function(){
+    			magic6.innerHTML = "SHOW";
+    			showDiv6.style.display = 'none';
+    
+				out6();
+			}
+		}
+	}
+    out6();
+	
+	//获取元素
+    var magic7 = document.getElementsByClassName('magic7')[0];
+    var showDiv7 = document.getElementsByClassName('show7')[0];
+
+	//添加点击事件
+    function out7(){
+        magic7.onclick = function(){
+			magic7.innerHTML = "HIDE";
+    		showDiv7.style.display = 'block';
+    
+			magic7.onclick = function(){
+    			magic7.innerHTML = "SHOW";
+    			showDiv7.style.display = 'none';
+    
+				out7();
+			}
+		}
+	}
+    out7();
+</script>
+
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        //init DateTimePickers-->
+<!--        materialKit.initFormExtendedDatetimepickers();-->
+
+<!--        // Sliders Init-->
+<!--        materialKit.initSliders();-->
+<!--    });-->
+
+
+<!--    function scrollToDownload() {-->
+<!--        if ($('.section-download').length != 0) {-->
+<!--            $("html, body").animate({-->
+<!--                scrollTop: $('.section-download').offset().top-->
+<!--            }, 1000);-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+</body>
+
+</html>
