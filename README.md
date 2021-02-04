@@ -17,10 +17,11 @@
 ## local config
 
 ### 先克隆到本地并创建虚拟环境
+在一个空文件夹打开`git bash`
 ``` shell
-git clone git@BUAADreamer
+git clone git@github.com:BUAADreamer/ILovePy-soccerDataAnalysisProject.git
 cd ./ILovePy/
-conda create --name <env> --file requirements.txt
+conda create --name <your-env-name> --file requirements.txt
   
 ```
 
@@ -31,7 +32,7 @@ conda create --name <env> --file requirements.txt
 
 ``` shell
 #打开shell
-conda activate <your-name>
+conda activate <your-env-name>
 flask run
 就可以打开localhost对应的IP看到结果
 
