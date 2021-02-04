@@ -34,9 +34,9 @@ conda create --name <your-env-name> --file requirements.txt
 #打开shell
 conda activate <your-env-name>
 flask run
-就可以打开localhost对应的IP看到结果
-
+#打开localhost对应的IP看到结果——http://127.0.0.1:5000/ 
 ```
+
 
 
 
