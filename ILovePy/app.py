@@ -27,7 +27,7 @@ app.config['SECRET_KEY'] = os.urandom(24)
 
 
 def register(name, password):
-    db = pymysql.connect(host='localhost', user='root', password='1325muller', db='Soccer')
+    db = pymysql.connect(host='localhost', user='your_name', password='your_password','Soccer')
     cursor = db.cursor()
     # print("connect to db")
     sql = "SELECT * FROM client \
