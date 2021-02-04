@@ -13,6 +13,7 @@
 
 * 本项目在2021年的北航暑期数据科学训练营里由北航1906的fzc和2073的ysq,lzn,tld,ljy五位同学共同开发完成
 * 目前本项目只是制作了部署在本地`localhost`的`demo`，实现了基本的登录退出，上传文件，爬虫获取数据可视化，展示静态世界杯数据等功能。
+* 可以观看ILovePy_demo_video了解这个Web系统
 
 ## local config
 
@@ -35,6 +36,7 @@ conda create --name <your-env-name> --file requirements.txt
 conda activate <your-env-name>
 flask run
 #打开localhost对应的IP看到结果——http://127.0.0.1:5000/ 
+
 ```
 
 
