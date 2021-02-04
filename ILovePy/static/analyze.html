@@ -114,7 +114,7 @@ The above copyright notice and this permission notice shall be included in all c
         <div class="row">
             <div class="col-md-8 ml-auto mr-auto">
                 <div class="brand">
-                    <h1 style="color:white; font-family: Bell MT">ILovePy</h1><br>
+                    <h1 style="color:white; font-family: Bell MT">Analyze site</h1><br>
                     <font face="Microsoft PhagesPaC" size="+2">A Soccer Data analysis system.</font>
                     <h4>Hello {{ user }}!</h4>
                 </div>
@@ -125,19 +125,23 @@ The above copyright notice and this permission notice shall be included in all c
 <div class="main main-raised">
     <div class="container">
         <div class="section text-center">
-            <h2 class="title">Upload your file to analyze</h2>
+            <h2 class="title">Analyze result of {{ file }}</h2>
         </div>
-        <div id="blore">
-            <form action="/analyze" method="post" enctype="multipart/form-data" >
-
-
-                <input type="file" name="file" class="input" id="upload" style="border:2px solid;" >
-                <input type="submit" value="上传" class="input button" id="buttontmp">
-                </br></br></br></br>
-
-            </form></div>
+    </div>
+    <div id="blore2" >
+        <div >
+            {% for x in data.keys() %}
+            <div class="title">
+                <h3>{{ x }}</h3>
+            </div>
+            {% for i in data[x].keys() %}
+            <button type="button" class="btn" data-placement="middle" title={{ i }} data-container="body">{{ data[x][i] }}</button>
+            {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
+
 <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
 <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="./assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
